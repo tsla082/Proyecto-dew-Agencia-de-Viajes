@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>@ViewBag.Title </title>
         <!--links boostrap-->
         <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
 
@@ -24,6 +24,7 @@
         <script src="~/Scripts/bootstrap.min.js"></script>
         <script src="~/Scripts/jquery-1.9.0.min.js"></script>
 
+        @RenderSection("featured", false)
         @RenderBody()
         @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)
