@@ -1,0 +1,613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EasyTravelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Aeropuerto">
+    <Key>
+      <PropertyRef Name="idAeropuerto" />
+    </Key>
+    <Property Name="idAeropuerto" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="nombAeropuerto" Type="varchar" MaxLength="100" />
+    <Property Name="idPais" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idCiudad" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="direcAeropuerto" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Avion">
+    <Key>
+      <PropertyRef Name="idAvion" />
+    </Key>
+    <Property Name="idAvion" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idProveedor" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="modelAvion" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Cargo">
+    <Key>
+      <PropertyRef Name="idCargo" />
+    </Key>
+    <Property Name="idCargo" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="nombCargo" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="CategoriaHotel">
+    <Key>
+      <PropertyRef Name="idCategoriaHotel" />
+    </Key>
+    <Property Name="idCategoriaHotel" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="numeroestrellas" Type="int" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="idCiudad" />
+    </Key>
+    <Property Name="idCiudad" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idPais" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="nombCiudad" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="apellidopat" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="apellidomat" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="genero" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="fechanacimiento" Type="date" Nullable="false" />
+    <Property Name="docId" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="idPais" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idCiudad" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="70" />
+    <Property Name="correo" Type="varchar" MaxLength="45" />
+    <Property Name="clave" Type="char" MaxLength="10" />
+    <Property Name="fechreg" Type="date" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="idEmpleado" />
+    </Key>
+    <Property Name="idEmpleado" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="45" />
+    <Property Name="apellidopat" Type="varchar" MaxLength="45" />
+    <Property Name="apellidomat" Type="varchar" MaxLength="45" />
+    <Property Name="genero" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="dni" Type="varchar" MaxLength="8" />
+    <Property Name="telefono" Type="varchar" MaxLength="45" />
+    <Property Name="idPais" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idCiudad" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="70" />
+    <Property Name="idCargo" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="45" />
+    <Property Name="fechareg" Type="date" />
+  </EntityType>
+  <EntityType Name="EstadoReserva">
+    <Key>
+      <PropertyRef Name="idEstadoReserva" />
+    </Key>
+    <Property Name="idEstadoReserva" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="estadoReserva" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="GestionPaquete">
+    <Key>
+      <PropertyRef Name="idPaquete" />
+    </Key>
+    <Property Name="idPaquete" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idTipopaquete" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="nombPaquete" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="idPais" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idCiudad" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="iniciodisponibilidad" Type="datetime" Nullable="false" />
+    <Property Name="findisponibilidad" Type="datetime" Nullable="false" />
+    <Property Name="idProgVuelo" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="servIncluidos" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="servAdicional" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="infoPaquete" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="precioPaqueteAdulto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="precioPaqueteNiño" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Habitacion">
+    <Key>
+      <PropertyRef Name="idHabitacion" />
+    </Key>
+    <Property Name="idHabitacion" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idProveedor" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idCategoriaHotel" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="10" />
+    <Property Name="idTipoHabitacion" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="numCamas" Type="int" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="idPais" />
+    </Key>
+    <Property Name="idPais" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="nombPais" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="ProgVuelo">
+    <Key>
+      <PropertyRef Name="idProgVuelo" />
+    </Key>
+    <Property Name="idProgVuelo" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idProveedor" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idAvion" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="puntoPartida" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="puntoLLegada" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="escala" Type="char" MaxLength="4" />
+    <Property Name="fecha_salida" Type="datetime" />
+    <Property Name="fecha_llegada" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="idProveedor" />
+    </Key>
+    <Property Name="idProveedor" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idTipoServicio" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="nombProveedor" Type="varchar" MaxLength="45" />
+    <Property Name="rucProveedor" Type="varchar" MaxLength="11" />
+    <Property Name="idPais" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="idCiudad" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="direcProveedor" Type="varchar" MaxLength="70" />
+  </EntityType>
+  <EntityType Name="Reserva">
+    <Key>
+      <PropertyRef Name="nroReserva" />
+    </Key>
+    <Property Name="nroReserva" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="idPaquete" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="nombreContacto" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="apellidopatContacto" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="apellidomatContacto" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="direccionContacto" Type="varchar" MaxLength="70" />
+    <Property Name="correoContacto" Type="varchar" MaxLength="45" />
+    <Property Name="idEstadoReserva" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="fechareserva" Type="date" />
+    <Property Name="nroPago" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TipoHabitacion">
+    <Key>
+      <PropertyRef Name="idTipoHabitacion" />
+    </Key>
+    <Property Name="idTipoHabitacion" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="tipoHabitacion" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TipoPaquete">
+    <Key>
+      <PropertyRef Name="idTipoPaquete" />
+    </Key>
+    <Property Name="idTipoPaquete" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="nombTipoPaquete" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="TipoServicio">
+    <Key>
+      <PropertyRef Name="idTipoServicio" />
+    </Key>
+    <Property Name="idTipoServicio" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="Servicio" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <Association Name="FK__Aeropuert__idCiu__2A4B4B5E">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="idCiudad" />
+      </Principal>
+      <Dependent Role="Aeropuerto">
+        <PropertyRef Name="idCiudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Aeropuert__idPai__29572725">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Aeropuerto">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Avion__idProveed__267ABA7A">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+    <End Role="Avion" Type="Self.Avion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="Avion">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ciudad__idPais__1273C1CD">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Ciudad">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cliente__idCiuda__164452B1">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="idCiudad" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="idCiudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cliente__idPais__15502E78">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleado__idCarg__1CF15040">
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="idCargo" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="idCargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleado__idCiud__1BFD2C07">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="idCiudad" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="idCiudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleado__idPais__1B0907CE">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GestionPa__idCiu__403A8C7D">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="GestionPaquete" Type="Self.GestionPaquete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="idCiudad" />
+      </Principal>
+      <Dependent Role="GestionPaquete">
+        <PropertyRef Name="idCiudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GestionPa__idPai__3F466844">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="GestionPaquete" Type="Self.GestionPaquete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="GestionPaquete">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GestionPa__idPro__412EB0B6">
+    <End Role="ProgVuelo" Type="Self.ProgVuelo" Multiplicity="1" />
+    <End Role="GestionPaquete" Type="Self.GestionPaquete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgVuelo">
+        <PropertyRef Name="idProgVuelo" />
+      </Principal>
+      <Dependent Role="GestionPaquete">
+        <PropertyRef Name="idProgVuelo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GestionPa__idTip__3E52440B">
+    <End Role="TipoPaquete" Type="Self.TipoPaquete" Multiplicity="1" />
+    <End Role="GestionPaquete" Type="Self.GestionPaquete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPaquete">
+        <PropertyRef Name="idTipoPaquete" />
+      </Principal>
+      <Dependent Role="GestionPaquete">
+        <PropertyRef Name="idTipopaquete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Habitacio__idCat__38996AB5">
+    <End Role="CategoriaHotel" Type="Self.CategoriaHotel" Multiplicity="1" />
+    <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriaHotel">
+        <PropertyRef Name="idCategoriaHotel" />
+      </Principal>
+      <Dependent Role="Habitacion">
+        <PropertyRef Name="idCategoriaHotel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Habitacio__idPro__37A5467C">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+    <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="Habitacion">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Habitacio__idTip__398D8EEE">
+    <End Role="TipoHabitacion" Type="Self.TipoHabitacion" Multiplicity="1" />
+    <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoHabitacion">
+        <PropertyRef Name="idTipoHabitacion" />
+      </Principal>
+      <Dependent Role="Habitacion">
+        <PropertyRef Name="idTipoHabitacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProgVuelo__escal__30F848ED">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="0..1" />
+    <End Role="ProgVuelo" Type="Self.ProgVuelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="idAeropuerto" />
+      </Principal>
+      <Dependent Role="ProgVuelo">
+        <PropertyRef Name="escala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProgVuelo__idAvi__2E1BDC42">
+    <End Role="Avion" Type="Self.Avion" Multiplicity="1" />
+    <End Role="ProgVuelo" Type="Self.ProgVuelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Avion">
+        <PropertyRef Name="idAvion" />
+      </Principal>
+      <Dependent Role="ProgVuelo">
+        <PropertyRef Name="idAvion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProgVuelo__idPro__2D27B809">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+    <End Role="ProgVuelo" Type="Self.ProgVuelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="ProgVuelo">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProgVuelo__punto__2F10007B">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="1" />
+    <End Role="ProgVuelo" Type="Self.ProgVuelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="idAeropuerto" />
+      </Principal>
+      <Dependent Role="ProgVuelo">
+        <PropertyRef Name="puntoPartida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProgVuelo__punto__300424B4">
+    <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="1" />
+    <End Role="ProgVuelo" Type="Self.ProgVuelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuerto">
+        <PropertyRef Name="idAeropuerto" />
+      </Principal>
+      <Dependent Role="ProgVuelo">
+        <PropertyRef Name="puntoLLegada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__idCiu__239E4DCF">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="idCiudad" />
+      </Principal>
+      <Dependent Role="Proveedor">
+        <PropertyRef Name="idCiudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__idPai__22AA2996">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="idPais" />
+      </Principal>
+      <Dependent Role="Proveedor">
+        <PropertyRef Name="idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Proveedor__idTip__21B6055D">
+    <End Role="TipoServicio" Type="Self.TipoServicio" Multiplicity="1" />
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoServicio">
+        <PropertyRef Name="idTipoServicio" />
+      </Principal>
+      <Dependent Role="Proveedor">
+        <PropertyRef Name="idTipoServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reserva__idPaque__45F365D3">
+    <End Role="GestionPaquete" Type="Self.GestionPaquete" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GestionPaquete">
+        <PropertyRef Name="idPaquete" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="idPaquete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EasyTravelModelStoreContainer">
+    <EntitySet Name="Aeropuerto" EntityType="Self.Aeropuerto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Avion" EntityType="Self.Avion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoriaHotel" EntityType="Self.CategoriaHotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstadoReserva" EntityType="Self.EstadoReserva" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GestionPaquete" EntityType="Self.GestionPaquete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Habitacion" EntityType="Self.Habitacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProgVuelo" EntityType="Self.ProgVuelo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reserva" EntityType="Self.Reserva" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoHabitacion" EntityType="Self.TipoHabitacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPaquete" EntityType="Self.TipoPaquete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoServicio" EntityType="Self.TipoServicio" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Aeropuert__idCiu__2A4B4B5E" Association="Self.FK__Aeropuert__idCiu__2A4B4B5E">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Aeropuert__idPai__29572725" Association="Self.FK__Aeropuert__idPai__29572725">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Avion__idProveed__267ABA7A" Association="Self.FK__Avion__idProveed__267ABA7A">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Avion" EntitySet="Avion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ciudad__idPais__1273C1CD" Association="Self.FK__Ciudad__idPais__1273C1CD">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Ciudad" EntitySet="Ciudad" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cliente__idCiuda__164452B1" Association="Self.FK__Cliente__idCiuda__164452B1">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cliente__idPais__15502E78" Association="Self.FK__Cliente__idPais__15502E78">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleado__idCarg__1CF15040" Association="Self.FK__Empleado__idCarg__1CF15040">
+      <End Role="Cargo" EntitySet="Cargo" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleado__idCiud__1BFD2C07" Association="Self.FK__Empleado__idCiud__1BFD2C07">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleado__idPais__1B0907CE" Association="Self.FK__Empleado__idPais__1B0907CE">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GestionPa__idCiu__403A8C7D" Association="Self.FK__GestionPa__idCiu__403A8C7D">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="GestionPaquete" EntitySet="GestionPaquete" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GestionPa__idPai__3F466844" Association="Self.FK__GestionPa__idPai__3F466844">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="GestionPaquete" EntitySet="GestionPaquete" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GestionPa__idPro__412EB0B6" Association="Self.FK__GestionPa__idPro__412EB0B6">
+      <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+      <End Role="GestionPaquete" EntitySet="GestionPaquete" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GestionPa__idTip__3E52440B" Association="Self.FK__GestionPa__idTip__3E52440B">
+      <End Role="TipoPaquete" EntitySet="TipoPaquete" />
+      <End Role="GestionPaquete" EntitySet="GestionPaquete" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Habitacio__idCat__38996AB5" Association="Self.FK__Habitacio__idCat__38996AB5">
+      <End Role="CategoriaHotel" EntitySet="CategoriaHotel" />
+      <End Role="Habitacion" EntitySet="Habitacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Habitacio__idPro__37A5467C" Association="Self.FK__Habitacio__idPro__37A5467C">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Habitacion" EntitySet="Habitacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Habitacio__idTip__398D8EEE" Association="Self.FK__Habitacio__idTip__398D8EEE">
+      <End Role="TipoHabitacion" EntitySet="TipoHabitacion" />
+      <End Role="Habitacion" EntitySet="Habitacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProgVuelo__escal__30F848ED" Association="Self.FK__ProgVuelo__escal__30F848ED">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProgVuelo__idAvi__2E1BDC42" Association="Self.FK__ProgVuelo__idAvi__2E1BDC42">
+      <End Role="Avion" EntitySet="Avion" />
+      <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProgVuelo__idPro__2D27B809" Association="Self.FK__ProgVuelo__idPro__2D27B809">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProgVuelo__punto__2F10007B" Association="Self.FK__ProgVuelo__punto__2F10007B">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProgVuelo__punto__300424B4" Association="Self.FK__ProgVuelo__punto__300424B4">
+      <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+      <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__idCiu__239E4DCF" Association="Self.FK__Proveedor__idCiu__239E4DCF">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Proveedor" EntitySet="Proveedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__idPai__22AA2996" Association="Self.FK__Proveedor__idPai__22AA2996">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Proveedor" EntitySet="Proveedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Proveedor__idTip__21B6055D" Association="Self.FK__Proveedor__idTip__21B6055D">
+      <End Role="TipoServicio" EntitySet="TipoServicio" />
+      <End Role="Proveedor" EntitySet="Proveedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reserva__idPaque__45F365D3" Association="Self.FK__Reserva__idPaque__45F365D3">
+      <End Role="GestionPaquete" EntitySet="GestionPaquete" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

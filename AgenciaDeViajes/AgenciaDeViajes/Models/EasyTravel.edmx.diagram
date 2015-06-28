@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8dc0fbd660f94bf38be5046ef610cc4c" Name="Diagram1">
+        <EntityTypeShape EntityType="EasyTravelModel.Aeropuerto" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.Avion" Width="1.5" PointX="7.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.Cargo" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.CategoriaHotel" Width="1.5" PointX="8.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.Ciudad" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.Cliente" Width="1.5" PointX="8.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.Empleado" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.EstadoReserva" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.GestionPaquete" Width="1.5" PointX="13" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.Habitacion" Width="1.5" PointX="10.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.Pais" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.ProgVuelo" Width="1.5" PointX="10.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.Proveedor" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.Reserva" Width="1.5" PointX="15.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.TipoHabitacion" Width="1.5" PointX="8.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.TipoPaquete" Width="1.5" PointX="10.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.TipoServicio" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <AssociationConnector Association="EasyTravelModel.FK__Aeropuert__idCiu__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Aeropuert__idPai__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__ProgVuelo__escal__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__ProgVuelo__punto__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__ProgVuelo__punto__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Avion__idProveed__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__ProgVuelo__idAvi__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Empleado__idCarg__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Habitacio__idCat__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Ciudad__idPais__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Cliente__idCiuda__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Empleado__idCiud__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__GestionPa__idCiu__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Proveedor__idCiu__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Cliente__idPais__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Empleado__idPais__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__GestionPa__idPai__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__GestionPa__idPro__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__GestionPa__idTip__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Reserva__idPaque__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Habitacio__idPro__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Habitacio__idTip__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Proveedor__idPai__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__ProgVuelo__idPro__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyTravelModel.FK__Proveedor__idTip__21B6055D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

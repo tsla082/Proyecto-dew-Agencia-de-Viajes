@@ -44,6 +44,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -181,13 +183,81 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\PaquetesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Aeropuerto.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Avion.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cargo.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoriaHotel.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ciudad.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cliente.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EasyTravel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EasyTravel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EasyTravel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EasyTravel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EasyTravel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Empleado.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EstadoReserva.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GestionPaquete.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Habitacion.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pais.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Paquete.cs" />
+    <Compile Include="Models\ProgVuelo.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proveedor.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reserva.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoHabitacion.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoPaquete.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoServicio.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +289,27 @@
     <Content Include="Content\js\plugins\morris\morris.js" />
     <Content Include="Content\js\plugins\morris\morris.min.js" />
     <Content Include="Content\js\plugins\morris\raphael.min.js" />
+    <Content Include="Content\othercss\css\4-col-portfolio.css" />
+    <Content Include="Content\othercss\css\alternative.css" />
+    <Content Include="Content\othercss\css\bootstrap.css" />
+    <Content Include="Content\othercss\css\bootstrap.min.css" />
+    <Content Include="Content\othercss\css\displaytag.css" />
+    <Content Include="Content\othercss\css\estiloperfil.css" />
+    <Content Include="Content\othercss\css\fileinput.css" />
+    <Content Include="Content\othercss\css\fileinput.min.css" />
+    <Content Include="Content\othercss\css\heroic-features.css" />
+    <Content Include="Content\othercss\css\maven-base.css" />
+    <Content Include="Content\othercss\css\maven-theme.css" />
+    <Content Include="Content\othercss\css\micss.css" />
+    <Content Include="Content\othercss\css\modern-business.css" />
+    <Content Include="Content\othercss\css\plugins\morris.css" />
+    <Content Include="Content\othercss\css\print.css" />
+    <Content Include="Content\othercss\css\sb-admin.css" />
+    <Content Include="Content\othercss\css\screen.css" />
+    <Content Include="Content\othercss\css\shop-item.css" />
+    <Content Include="Content\othercss\css\site.css" />
+    <Content Include="Content\othercss\css\styles.css" />
+    <Content Include="Content\othercss\css\teststyles.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -273,6 +364,12 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="datepicker\css\bootstrap.css" />
+    <Content Include="datepicker\css\datepicker.css" />
+    <Content Include="datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="datepicker\js\main.js" />
+    <Content Include="Images\banner.png" />
+    <Content Include="Images\easytravelmenu.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
@@ -353,6 +450,8 @@
     <Content Include="Content\bootstrap\bootstrap.css.map">
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
+    <Content Include="Images\f.jpg" />
+    <Content Include="Images\fondo.jpg" />
     <Content Include="Scripts\bootstrap.min.js.map">
       <DependentUpon>bootstrap.min.js</DependentUpon>
     </Content>
@@ -387,6 +486,23 @@
     <Content Include="Content\font-awesome\scss\_spinning.scss" />
     <Content Include="Content\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\font-awesome\scss\_variables.scss" />
+    <EntityDeploy Include="Models\EasyTravel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EasyTravel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EasyTravel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EasyTravel.edmx</DependentUpon>
+      <LastGenOutput>EasyTravel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EasyTravel.edmx.diagram">
+      <DependentUpon>EasyTravel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\EasyTravel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EasyTravel.edmx</DependentUpon>
+      <LastGenOutput>EasyTravel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -408,6 +524,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Images\icono-agencia-de-viajes.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -431,32 +548,28 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\Administrar.cshtml">
+    <Content Include="Views\Shared\Administracion_layout.cshtml">
       <BrowseToURL>~/Shared/Administrar</BrowseToURL>
     </Content>
     <Content Include="Views\Shared\SideBar1.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Usuario_layout.cshtml" />
+    <Content Include="Views\Clientes\Inicio.cshtml" />
+    <Content Include="Views\Paquetes\Inicio.cshtml" />
+    <Content Include="Views\Paquetes\MenuPrincipal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

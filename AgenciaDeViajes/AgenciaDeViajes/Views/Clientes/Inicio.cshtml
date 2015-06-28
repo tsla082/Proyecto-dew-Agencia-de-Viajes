@@ -1,0 +1,358 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/Usuario_layout.cshtml";
+}
+
+<h2>INICIO</h2>
+
+<div class="container ">
+
+
+    <hr>
+
+    <!-- fin fila banner -->
+    <!-- inicio fila buscar paquete -->
+
+    <div class="row" style="background-color: #">
+
+        <!-- inicio columna buscar paquete -->
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+            <form action="-----" method="post">
+
+                <!-- Area de accion !h! -->
+                <!-- Fin fila -->
+                <!-- inicio fila -->
+                <div class="row" style="background-color: #">
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color: #">
+
+                        <h1 class="page-header">
+                            Paquetes <small>busqueda </small>
+                        </h1>
+
+                    </div>
+
+                </div>
+                <!-- Fin fila -->
+                <!-- inicio fila -->
+                <div class="row" style="background-color: #">
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <h4>Paquete</h4>
+
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <select id="tipopaquete" name="tipopaquete" class="form-control">
+                            <option value="0">Nacional</option>
+                            <option value="1">Internacional</option>
+                        </select>
+
+                    </div>
+
+                </div>
+                <!-- Fin fila -->
+                <!-- inicio fila -->
+                <div class="row" style="background-color: #">
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <h4>Salida</h4>
+
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <input id="fechasalida" type="text" name="fechasalida" class="datepicker form-control " id="inputSeleccionado" placeholder="año-mes-dia" tabindex="1">
+
+                    </div>
+
+                </div>
+                <!-- Fin fila -->
+                <!-- inicio fila -->
+                <div class="row" style="background-color: #">
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <h4>Retorno</h4>
+
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <input id="fecharetorno" type="text" name="fecharetorno" class="datepicker form-control " id="inputSeleccionado" placeholder="año-mes-dia" tabindex="1">
+
+                    </div>
+
+                </div>
+                <!-- Fin fila -->
+                <!-- inicio fila -->
+
+                <div class="row" style="background-color: #">
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <h4>Pais</h4>
+
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <select id="pais" name="pais" class="form-control">
+                            <option value="0">Peru</option>
+                            <option value="1">Brasil</option>
+                        </select>
+
+                    </div>
+
+                </div>
+                <!-- Fin fila -->
+                <!-- inicio fila -->
+
+                <div class="row" style="background-color: #">
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <h4>Ciudad</h4>
+
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <select id="Ciudad" name="Ciudad" class="form-control">
+                            <option value="0">Lima</option>
+                            <option value="1">Brasilia</option>
+                            <option value="2">Sao Paulo</option>
+                        </select>
+
+                    </div>
+
+                </div>
+                <!-- Fin fila -->
+                <!-- inicio fila -->
+
+                <div class="row" style="background-color: #">
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <div class="row">
+
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                                <h4>Habitaciones</h4>
+
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="background-color: #">
+
+                                <select id="habitaciones" name="habitaciones" class="form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6" style="background-color: #">
+
+
+                    </div>
+
+                </div>
+                <!-- Fin fila -->
+                <!-- inicio fila -->
+                <div class="row" style="background-color: #">
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <div class="row">
+
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                                <h4>Adultos</h4>
+
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                                <select id="Adultos" name="Adultos" class="form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <div class="row">
+
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                                <h4>Niños</h4>
+
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                                <select id="ninos" name="ninos" class="form-control">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+                <!-- Fin fila -->
+                <!-- inicio fila -->
+
+                <div class="row" style="background-color: #">
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <div class="row">
+
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color: #">
+
+                                &nbsp;
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: #">
+
+                        <div class="row">
+
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color: #">
+
+                                <input type="submit" name="Buscar" value="Buscar" class="btn btn-success " style="font-family: sans-serif;;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                <!-- Fin fila -->
+            </form>
+        </div>
+
+
+
+        <!-- fin columna buscar paquete -->
+        <!-- inicio columna publicidad -->
+
+        <div id="" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: ">
+
+            <div class="row" style="background-color: transparent">
+
+                @Html.ActionLink("Inicio", "Inicio", "Paquetes")
+
+            </div>
+
+
+        </div>
+
+        <!-- fin columna publicidad -->
+
+    </div>
+
+
+    <!-- inicio fila buscar paquete -->
+    <!-- Title -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Carrusel de Paquetes</h3>
+        </div>
+    </div>
+    <!-- /.row -->
+    <!-- Page Features -->
+    <div class="row text-center ">
+
+        <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+                <div class="caption">
+                    <h3>Feature Label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p>
+                        <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+                <div class="caption">
+                    <h3>Feature Label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p>
+                        <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+                <div class="caption">
+                    <h3>Feature Label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p>
+                        <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+                <div class="caption">
+                    <h3>Feature Label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p>
+                        <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+</div>
+
+

@@ -1,0 +1,189 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+
+    <!-- icon title bar -->
+    <link type="image/x-icon" href="~/Images/icono-agencia-de-viajes.jpg" rel="icon" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="~/Content/othercss/css/heroic-features.css" rel="stylesheet" type="text/css" />
+
+    <!-- Mi CSS -->
+    <link href="~/Content/othercss/css/styles.css" rel="stylesheet" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>@ViewBag.Title</title>
+
+    <!-- datepicker -->
+
+    <link href="~/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="~/datepicker/js/main.js" ></script>
+
+    <script type="text/javascript" src="~/datepicker/js/bootstrap-datepicker.js" ></script>
+ 
+     <script>
+
+             $(function(){
+                 $('.datepicker').datepicker({
+
+                     format: 'yyyy-mm-dd',
+                     startDate: '-3d',
+
+                     autoclose: true,
+                     endDate: '+0d'
+
+                 });
+
+                 $('#fechasalida').on('changeDate', function(ev){
+                     $(this).datepicker('hide');
+                 });
+
+                 $('#fecharetorno').on('changeDate', function(ev){
+                     $(this).datepicker('hide');
+                 });
+
+
+                 function today(){
+                     var d = new Date();
+                     var curr_date = d.getDate();
+                     var curr_month = d.getMonth() + 1;
+                     var curr_year = d.getFullYear();
+
+                     document.miform.tdci.value=curr_year+ "-" + curr_month + "-" +curr_date  ;
+                     document.miform.tdcf.value=curr_year+ "-" + curr_month + "-" +curr_date  ;
+                 }
+
+             });
+     </script>  
+    <!-- datepicker -->
+
+
+</head>
+<body class="cuerpo">
+
+
+    <!-- Navigation -->
+    <!--  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> -->
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.jsp">
+                    <img alt="logo E&M" src="~/Images/easytravelmenu.png" style="margin-top: -10px;">
+                    <!--E&M TRAVEL -->
+
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav ">
+                    <li>
+                        <a href="index.--">Inicio</a>
+                    </li>
+
+                    <li>
+                        <a href="Nacionales">Paquetes Nacionales</a>
+                    </li>
+                    <li>
+                        <a href="Internacionales">Paquetes Internacionales</a>
+                    </li>
+                    <li>
+                        <a href="#">Ofertas</a>
+                    </li>
+                    <li>
+                        <a href="Acerdadenosotros.jsp">Acerda de nosotros</a>
+                    </li>
+                    <li>
+                        <a href="Contactenos">Contactenos</a>
+                    </li>
+                    <li>
+                        <button class="btn btn-default" style="margin-top: 8px;margin-left: 10px" data-toggle="modal" data-target="#myventana">Login </button>
+                    </li>
+
+                    <!-- mi dropdow -->
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> No logueado @ViewBag.usuario <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="profile.jsp"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            </li>
+                            <li>
+                                <a href="ProfileUpdate.jsp"><i class="fa fa-fw fa-gear"></i> Profile update</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="salir"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- fin dropdown -->
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container ">
+
+        <!-- Jumbotron Header -->
+        <!-- inicio fila banner -->
+
+        <div class="row">
+
+            <div class="col-lg-12 hidden-xs hidden-md">
+
+              <!--  <img class="img-responsive" src="~/Images/banner.png" /> -->
+
+            </div>
+
+        </div>
+        @RenderSection("head", required: false)
+        @RenderBody()
+
+
+
+
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; EasyTravel Travel 2015</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- toggle modal poup -->
+        <!-- poup login -->
+
+
+
+
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="~/Content/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Content/js/bootstrap.min.js"></script>
+</body>
+
+</html>
