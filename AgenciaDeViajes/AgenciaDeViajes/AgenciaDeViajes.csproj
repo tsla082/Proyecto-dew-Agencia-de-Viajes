@@ -206,6 +206,7 @@
     <Compile Include="Models\Cliente.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Clientes.cs" />
     <Compile Include="Models\EasyTravel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -560,6 +561,7 @@
     <Content Include="Views\Clientes\Inicio.cshtml" />
     <Content Include="Views\Paquetes\Inicio.cshtml" />
     <Content Include="Views\Paquetes\MenuPrincipal.cshtml" />
+    <Content Include="Views\Shared\Background_layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,6 +20,8 @@ namespace AgenciaDeViajes.Controllers
 
         public ActionResult RegistrarCliente()
         {
+
+
             return View();
         }
         [HttpPost]
