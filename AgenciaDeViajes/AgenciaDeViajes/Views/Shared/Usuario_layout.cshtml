@@ -66,7 +66,11 @@
 </head>
 <body class="cuerpo">
 
-
+    @{
+        
+        String NAC1 = "NAC1";
+        String ITN1 = "ITN1"; 
+    }
     <!-- Navigation -->
     <!--  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> -->
 
@@ -88,15 +92,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav ">
                     <li>
-                        <a href="index.--">Inicio</a>
+                        <a href="@Url.Action("Inicio","Clientes")">Inicio</a>
                     </li>
 
                     <li>
-                        <a href="Nacionales">Paquetes Nacionales</a>
+                        @Html.ActionLink("Paquetes Nacionales", "PaquetesXtipo", new { tipopaquete = NAC1 })
                     </li>
                     <li>
-                        <a href="Internacionales">Paquetes Internacionales</a>
-                    </li>
+                        @Html.ActionLink("Paquetes Internacionales", "PaquetesXtipo", new { tipopaquete = ITN1 })
+                     </li>
                     <li>
                         <a href="#">Ofertas</a>
                     </li>
@@ -141,22 +145,27 @@
     <div class="container ">
 
         <!-- Jumbotron Header -->
-        
-        @RenderSection("head", required: false)
-        @RenderBody()
 
+        <div class="row">
+            @RenderSection("head", required: false)
+            @RenderBody()
+        </div>
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; EasyTravel Travel 2015</p>
+                    <!-- <p>Copyright &copy; EasyTravel Travel 2015</p> -->
+
+                    <p>Corporacion&copy; EasyTravel Travel 2015 - Agencia de Viajes y Easy Travel  Todos los derechos reservados Lima Perú 
+                        <img src="~/Images/ico_peru.jpg" /></p>
+
+                    <!--  <p>JavaDeveloper&copy; EasyTravel Travel 2015</p>  -->
                 </div>
             </div>
         </footer>
 
         <!-- toggle modal poup -->
         <!-- poup login -->
-
         <!-- poup login -->
 
         <div id="myventana" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="mymodallabel" aria-hidden="true">
@@ -225,14 +234,14 @@
     </div>
     <!-- /.container -->
     <!-- jQuery -->
-    <!-- <script src="~/Content/js/jquery.js"></script> --> 
-      <script src="~/Content/js/jquery-1.11.0.js"></script> 
+    <!-- <script src="~/Content/js/jquery.js"></script> -->
+    <script src="~/Content/js/jquery-1.11.0.js"></script>
     <!-- Bootstrap Core JavaScript -->
-       <script src="~/Scripts/bootstrap.min.js"></script>   
+    <script src="~/Scripts/bootstrap.min.js"></script>
 
-   <!--  <script src="~/Content/js/bootstrap.min.js"></script> -->
+    <!--  <script src="~/Content/js/bootstrap.min.js"></script> -->
 
-    
+
 
 
 

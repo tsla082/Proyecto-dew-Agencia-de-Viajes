@@ -18,7 +18,30 @@ namespace AgenciaDeViajes.Controllers
         public ActionResult Inicio()
         {
 
-            return View(agv.GestionPaquetes.ToList());
+            return View(agv.GestionPaquetes.OrderBy(x=>x.findisponibilidad).Take(8));
+        }
+
+      
+
+        public ActionResult PaquetesXtipo(String tipopaquete=null)
+        {
+            ViewBag.tipopaquete = tipopaquete;
+
+             String NAC1 = "NAC1";
+        String ITN1 = "ITN1";
+
+        ViewBag.tituloPaquetesXtipo = "Paquetes por tipo";
+
+            if(tipopaquete==NAC1){
+                   ViewBag.tituloPaquetesXtipo = "Paquetes Nacionales";
+
+            }
+             if(tipopaquete==ITN1){
+                ViewBag.tituloPaquetesXtipo = "Paquetes Internacionales";
+
+            }
+
+            return View(agv.GestionPaquetes.Where(x => x.idTipopaquete.Equals(tipopaquete)).ToList());
         }
 
         public ActionResult RegistrarCliente()
@@ -33,7 +56,14 @@ namespace AgenciaDeViajes.Controllers
             return View();
         }
 
-
+        public ActionResult Acercadenosotros( )
+        {
+            return View();
+        }
+        public ActionResult Contactenos()
+        {
+            return View();
+        }
 
     }
 }

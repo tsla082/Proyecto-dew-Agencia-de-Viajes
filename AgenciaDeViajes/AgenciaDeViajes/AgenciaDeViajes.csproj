@@ -463,6 +463,7 @@
     </Content>
     <Content Include="Images\f.jpg" />
     <Content Include="Images\fondo.jpg" />
+    <Content Include="Images\ico_peru.jpg" />
     <Content Include="Scripts\bootstrap.min.js.map">
       <DependentUpon>bootstrap.min.js</DependentUpon>
     </Content>
@@ -573,6 +574,8 @@
     <Content Include="Views\Paquetes\MenuPrincipal.cshtml" />
     <Content Include="Views\Shared\Background_layout.cshtml" />
     <Content Include="Views\Shared\_Partialpaquetes.cshtml" />
+    <Content Include="Views\Clientes\PaquetesXtipo.cshtml" />
+    <Content Include="Views\Clientes\Contactenos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

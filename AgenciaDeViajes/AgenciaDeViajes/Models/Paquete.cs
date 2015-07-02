@@ -19,8 +19,8 @@ namespace AgenciaDeViajes.Models
    String servIncluidos{get;set;}
    String servAdicional{get;set;}
    String infoPaquete{get;set;}
-   String precioPaqueteAdulto{get;set;}
-   String precioPaqueteNiño{get;set;}
+   decimal precioPaqueteAdulto{get;set;}
+   decimal precioPaqueteNiño { get; set; }
     
     }
 }
