@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using AgenciaDeViajes.Models;
+
 namespace AgenciaDeViajes.Controllers
 {
     public class ClientesController : Controller
@@ -11,11 +13,12 @@ namespace AgenciaDeViajes.Controllers
         //
         // GET: /Cliente/
 
-       // AgenciaDeViajes agv = new AgenciaDeViajes();
+        EasyTravelEntities2 agv = new EasyTravelEntities2();
 
         public ActionResult Inicio()
         {
-            return View();
+
+            return View(agv.GestionPaquetes.ToList());
         }
 
         public ActionResult RegistrarCliente()

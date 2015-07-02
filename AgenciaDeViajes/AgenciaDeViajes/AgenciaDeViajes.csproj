@@ -39,10 +39,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -62,9 +68,6 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -234,7 +237,7 @@
     <Compile Include="Models\Habitacion.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Pais.cs">
+    <Compile Include="Models\Pai.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Paquete.cs" />
@@ -247,7 +250,13 @@
     <Compile Include="Models\Reserva.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>EasyTravel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoHabitacion.cs">
@@ -279,6 +288,7 @@
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery-1.11.0.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\plugins\flot\excanvas.min.js" />
     <Content Include="Content\js\plugins\flot\flot-data.js" />
@@ -562,6 +572,7 @@
     <Content Include="Views\Paquetes\Inicio.cshtml" />
     <Content Include="Views\Paquetes\MenuPrincipal.cshtml" />
     <Content Include="Views\Shared\Background_layout.cshtml" />
+    <Content Include="Views\Shared\_Partialpaquetes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

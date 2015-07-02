@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8dc0fbd660f94bf38be5046ef610cc4c" Name="Diagram1">
+      <Diagram DiagramId="d76b1e8a92f446348733ff533106a169" Name="Diagram1">
         <EntityTypeShape EntityType="EasyTravelModel.Aeropuerto" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EasyTravelModel.Avion" Width="1.5" PointX="7.5" PointY="16.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EasyTravelModel.Cargo" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
@@ -15,11 +15,11 @@
         <EntityTypeShape EntityType="EasyTravelModel.EstadoReserva" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EasyTravelModel.GestionPaquete" Width="1.5" PointX="13" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="EasyTravelModel.Habitacion" Width="1.5" PointX="10.5" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyTravelModel.Pais" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.Pai" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EasyTravelModel.ProgVuelo" Width="1.5" PointX="10.75" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EasyTravelModel.Proveedor" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EasyTravelModel.Reserva" Width="1.5" PointX="15.25" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyTravelModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyTravelModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EasyTravelModel.TipoHabitacion" Width="1.5" PointX="8.25" PointY="22.25" IsExpanded="true" />
         <EntityTypeShape EntityType="EasyTravelModel.TipoPaquete" Width="1.5" PointX="10.75" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EasyTravelModel.TipoServicio" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />

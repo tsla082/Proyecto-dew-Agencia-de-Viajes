@@ -1,17 +1,17 @@
-﻿@{
+﻿@model IEnumerable<AgenciaDeViajes.Models.GestionPaquete>
+@{
     ViewBag.Title = "Inicio";
     Layout = "~/Views/Shared/Usuario_layout.cshtml";
 }
 
-<h2>INICIO</h2>
+
+ 
+
+@section head{
+
+<!-- <h2>INICIO</h2> -->
 
 <div class="container ">
-
-
-    <hr>
-
-    <!-- fin fila banner -->
-    <!-- inicio fila buscar paquete -->
 
     <div class="row" style="background-color: #">
 
@@ -356,3 +356,7 @@
 </div>
 
 
+
+
+}
+@Html.Partial("_Partialpaquetes")

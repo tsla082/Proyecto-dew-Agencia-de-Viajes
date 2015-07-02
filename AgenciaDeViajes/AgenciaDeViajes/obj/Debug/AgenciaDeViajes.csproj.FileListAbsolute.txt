@@ -85,3 +85,5 @@ E:\CSharp DEW\Proyecto DEW Agencia de Viajes\Proyecto-dew\AgenciaDeViajes\Agenci
 E:\CSharp DEW\Proyecto DEW Agencia de Viajes\Proyecto-dew\AgenciaDeViajes\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.dll
 E:\CSharp DEW\Proyecto DEW Agencia de Viajes\Proyecto-dew\AgenciaDeViajes\AgenciaDeViajes\obj\Debug\AgenciaDeViajes.pdb
 E:\CSharp DEW\Proyecto DEW Agencia de Viajes\Proyecto-dew\AgenciaDeViajes\AgenciaDeViajes\bin\es\WebMatrix.Data.resources.dll
+E:\CSharp DEW\Proyecto DEW Agencia de Viajes\Proyecto-dew\AgenciaDeViajes\AgenciaDeViajes\bin\EntityFramework.SqlServer.dll
+E:\CSharp DEW\Proyecto DEW Agencia de Viajes\Proyecto-dew\AgenciaDeViajes\AgenciaDeViajes\bin\EntityFramework.SqlServer.xml

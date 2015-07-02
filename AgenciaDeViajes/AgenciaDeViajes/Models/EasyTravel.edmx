@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EasyTravelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EasyTravelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aeropuerto">
           <Key>
             <PropertyRef Name="idAeropuerto" />
@@ -495,6 +495,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="EasyTravelModelStoreContainer">
           <EntitySet Name="Aeropuerto" EntityType="Self.Aeropuerto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Avion" EntityType="Self.Avion" Schema="dbo" store:Type="Tables" />
@@ -630,10 +661,10 @@
           <Property Name="idCiudad" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="direcAeropuerto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Ciudad" Relationship="Self.FK__Aeropuert__idCiu__2A4B4B5E" FromRole="Aeropuerto" ToRole="Ciudad" />
-          <NavigationProperty Name="Pais" Relationship="Self.FK__Aeropuert__idPai__29572725" FromRole="Aeropuerto" ToRole="Pais" />
-          <NavigationProperty Name="ProgVuelo" Relationship="Self.FK__ProgVuelo__escal__30F848ED" FromRole="Aeropuerto" ToRole="ProgVuelo" />
-          <NavigationProperty Name="ProgVuelo1" Relationship="Self.FK__ProgVuelo__punto__2F10007B" FromRole="Aeropuerto" ToRole="ProgVuelo" />
-          <NavigationProperty Name="ProgVuelo2" Relationship="Self.FK__ProgVuelo__punto__300424B4" FromRole="Aeropuerto" ToRole="ProgVuelo" />
+          <NavigationProperty Name="Pai" Relationship="Self.FK__Aeropuert__idPai__29572725" FromRole="Aeropuerto" ToRole="Pais" />
+          <NavigationProperty Name="ProgVueloes" Relationship="Self.FK__ProgVuelo__escal__30F848ED" FromRole="Aeropuerto" ToRole="ProgVuelo" />
+          <NavigationProperty Name="ProgVueloes1" Relationship="Self.FK__ProgVuelo__punto__2F10007B" FromRole="Aeropuerto" ToRole="ProgVuelo" />
+          <NavigationProperty Name="ProgVueloes2" Relationship="Self.FK__ProgVuelo__punto__300424B4" FromRole="Aeropuerto" ToRole="ProgVuelo" />
         </EntityType>
         <EntityType Name="Avion">
           <Key>
@@ -643,7 +674,7 @@
           <Property Name="idProveedor" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="modelAvion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Proveedor" Relationship="Self.FK__Avion__idProveed__267ABA7A" FromRole="Avion" ToRole="Proveedor" />
-          <NavigationProperty Name="ProgVuelo" Relationship="Self.FK__ProgVuelo__idAvi__2E1BDC42" FromRole="Avion" ToRole="ProgVuelo" />
+          <NavigationProperty Name="ProgVueloes" Relationship="Self.FK__ProgVuelo__idAvi__2E1BDC42" FromRole="Avion" ToRole="ProgVuelo" />
         </EntityType>
         <EntityType Name="Cargo">
           <Key>
@@ -651,7 +682,7 @@
           </Key>
           <Property Name="idCargo" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="nombCargo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__idCarg__1CF15040" FromRole="Cargo" ToRole="Empleado" />
+          <NavigationProperty Name="Empleadoes" Relationship="Self.FK__Empleado__idCarg__1CF15040" FromRole="Cargo" ToRole="Empleado" />
         </EntityType>
         <EntityType Name="CategoriaHotel">
           <Key>
@@ -659,7 +690,7 @@
           </Key>
           <Property Name="idCategoriaHotel" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="numeroestrellas" Type="Int32" />
-          <NavigationProperty Name="Habitacion" Relationship="Self.FK__Habitacio__idCat__38996AB5" FromRole="CategoriaHotel" ToRole="Habitacion" />
+          <NavigationProperty Name="Habitacions" Relationship="Self.FK__Habitacio__idCat__38996AB5" FromRole="CategoriaHotel" ToRole="Habitacion" />
         </EntityType>
         <EntityType Name="Ciudad">
           <Key>
@@ -668,12 +699,12 @@
           <Property Name="idCiudad" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="idPais" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="nombCiudad" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Aeropuerto" Relationship="Self.FK__Aeropuert__idCiu__2A4B4B5E" FromRole="Ciudad" ToRole="Aeropuerto" />
-          <NavigationProperty Name="Pais" Relationship="Self.FK__Ciudad__idPais__1273C1CD" FromRole="Ciudad" ToRole="Pais" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__idCiuda__164452B1" FromRole="Ciudad" ToRole="Cliente" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__idCiud__1BFD2C07" FromRole="Ciudad" ToRole="Empleado" />
-          <NavigationProperty Name="GestionPaquete" Relationship="Self.FK__GestionPa__idCiu__403A8C7D" FromRole="Ciudad" ToRole="GestionPaquete" />
-          <NavigationProperty Name="Proveedor" Relationship="Self.FK__Proveedor__idCiu__239E4DCF" FromRole="Ciudad" ToRole="Proveedor" />
+          <NavigationProperty Name="Aeropuertoes" Relationship="Self.FK__Aeropuert__idCiu__2A4B4B5E" FromRole="Ciudad" ToRole="Aeropuerto" />
+          <NavigationProperty Name="Pai" Relationship="Self.FK__Ciudad__idPais__1273C1CD" FromRole="Ciudad" ToRole="Pais" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK__Cliente__idCiuda__164452B1" FromRole="Ciudad" ToRole="Cliente" />
+          <NavigationProperty Name="Empleadoes" Relationship="Self.FK__Empleado__idCiud__1BFD2C07" FromRole="Ciudad" ToRole="Empleado" />
+          <NavigationProperty Name="GestionPaquetes" Relationship="Self.FK__GestionPa__idCiu__403A8C7D" FromRole="Ciudad" ToRole="GestionPaquete" />
+          <NavigationProperty Name="Proveedors" Relationship="Self.FK__Proveedor__idCiu__239E4DCF" FromRole="Ciudad" ToRole="Proveedor" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -693,7 +724,7 @@
           <Property Name="clave" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="fechreg" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Ciudad" Relationship="Self.FK__Cliente__idCiuda__164452B1" FromRole="Cliente" ToRole="Ciudad" />
-          <NavigationProperty Name="Pais" Relationship="Self.FK__Cliente__idPais__15502E78" FromRole="Cliente" ToRole="Pais" />
+          <NavigationProperty Name="Pai" Relationship="Self.FK__Cliente__idPais__15502E78" FromRole="Cliente" ToRole="Pais" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
@@ -714,7 +745,7 @@
           <Property Name="fechareg" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Cargo" Relationship="Self.FK__Empleado__idCarg__1CF15040" FromRole="Empleado" ToRole="Cargo" />
           <NavigationProperty Name="Ciudad" Relationship="Self.FK__Empleado__idCiud__1BFD2C07" FromRole="Empleado" ToRole="Ciudad" />
-          <NavigationProperty Name="Pais" Relationship="Self.FK__Empleado__idPais__1B0907CE" FromRole="Empleado" ToRole="Pais" />
+          <NavigationProperty Name="Pai" Relationship="Self.FK__Empleado__idPais__1B0907CE" FromRole="Empleado" ToRole="Pais" />
         </EntityType>
         <EntityType Name="EstadoReserva">
           <Key>
@@ -741,10 +772,10 @@
           <Property Name="precioPaqueteAdulto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="precioPaqueteNiño" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Ciudad" Relationship="Self.FK__GestionPa__idCiu__403A8C7D" FromRole="GestionPaquete" ToRole="Ciudad" />
-          <NavigationProperty Name="Pais" Relationship="Self.FK__GestionPa__idPai__3F466844" FromRole="GestionPaquete" ToRole="Pais" />
+          <NavigationProperty Name="Pai" Relationship="Self.FK__GestionPa__idPai__3F466844" FromRole="GestionPaquete" ToRole="Pais" />
           <NavigationProperty Name="ProgVuelo" Relationship="Self.FK__GestionPa__idPro__412EB0B6" FromRole="GestionPaquete" ToRole="ProgVuelo" />
           <NavigationProperty Name="TipoPaquete" Relationship="Self.FK__GestionPa__idTip__3E52440B" FromRole="GestionPaquete" ToRole="TipoPaquete" />
-          <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__idPaque__45F365D3" FromRole="GestionPaquete" ToRole="Reserva" />
+          <NavigationProperty Name="Reservas" Relationship="Self.FK__Reserva__idPaque__45F365D3" FromRole="GestionPaquete" ToRole="Reserva" />
         </EntityType>
         <EntityType Name="Habitacion">
           <Key>
@@ -760,18 +791,18 @@
           <NavigationProperty Name="Proveedor" Relationship="Self.FK__Habitacio__idPro__37A5467C" FromRole="Habitacion" ToRole="Proveedor" />
           <NavigationProperty Name="TipoHabitacion" Relationship="Self.FK__Habitacio__idTip__398D8EEE" FromRole="Habitacion" ToRole="TipoHabitacion" />
         </EntityType>
-        <EntityType Name="Pais">
+        <EntityType Name="Pai">
           <Key>
             <PropertyRef Name="idPais" />
           </Key>
           <Property Name="idPais" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="nombPais" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Aeropuerto" Relationship="Self.FK__Aeropuert__idPai__29572725" FromRole="Pais" ToRole="Aeropuerto" />
-          <NavigationProperty Name="Ciudad" Relationship="Self.FK__Ciudad__idPais__1273C1CD" FromRole="Pais" ToRole="Ciudad" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__idPais__15502E78" FromRole="Pais" ToRole="Cliente" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__idPais__1B0907CE" FromRole="Pais" ToRole="Empleado" />
-          <NavigationProperty Name="GestionPaquete" Relationship="Self.FK__GestionPa__idPai__3F466844" FromRole="Pais" ToRole="GestionPaquete" />
-          <NavigationProperty Name="Proveedor" Relationship="Self.FK__Proveedor__idPai__22AA2996" FromRole="Pais" ToRole="Proveedor" />
+          <NavigationProperty Name="Aeropuertoes" Relationship="Self.FK__Aeropuert__idPai__29572725" FromRole="Pais" ToRole="Aeropuerto" />
+          <NavigationProperty Name="Ciudads" Relationship="Self.FK__Ciudad__idPais__1273C1CD" FromRole="Pais" ToRole="Ciudad" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK__Cliente__idPais__15502E78" FromRole="Pais" ToRole="Cliente" />
+          <NavigationProperty Name="Empleadoes" Relationship="Self.FK__Empleado__idPais__1B0907CE" FromRole="Pais" ToRole="Empleado" />
+          <NavigationProperty Name="GestionPaquetes" Relationship="Self.FK__GestionPa__idPai__3F466844" FromRole="Pais" ToRole="GestionPaquete" />
+          <NavigationProperty Name="Proveedors" Relationship="Self.FK__Proveedor__idPai__22AA2996" FromRole="Pais" ToRole="Proveedor" />
         </EntityType>
         <EntityType Name="ProgVuelo">
           <Key>
@@ -789,7 +820,7 @@
           <NavigationProperty Name="Aeropuerto1" Relationship="Self.FK__ProgVuelo__punto__2F10007B" FromRole="ProgVuelo" ToRole="Aeropuerto" />
           <NavigationProperty Name="Aeropuerto2" Relationship="Self.FK__ProgVuelo__punto__300424B4" FromRole="ProgVuelo" ToRole="Aeropuerto" />
           <NavigationProperty Name="Avion" Relationship="Self.FK__ProgVuelo__idAvi__2E1BDC42" FromRole="ProgVuelo" ToRole="Avion" />
-          <NavigationProperty Name="GestionPaquete" Relationship="Self.FK__GestionPa__idPro__412EB0B6" FromRole="ProgVuelo" ToRole="GestionPaquete" />
+          <NavigationProperty Name="GestionPaquetes" Relationship="Self.FK__GestionPa__idPro__412EB0B6" FromRole="ProgVuelo" ToRole="GestionPaquete" />
           <NavigationProperty Name="Proveedor" Relationship="Self.FK__ProgVuelo__idPro__2D27B809" FromRole="ProgVuelo" ToRole="Proveedor" />
         </EntityType>
         <EntityType Name="Proveedor">
@@ -803,11 +834,11 @@
           <Property Name="idPais" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="idCiudad" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="direcProveedor" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Avion" Relationship="Self.FK__Avion__idProveed__267ABA7A" FromRole="Proveedor" ToRole="Avion" />
+          <NavigationProperty Name="Avions" Relationship="Self.FK__Avion__idProveed__267ABA7A" FromRole="Proveedor" ToRole="Avion" />
           <NavigationProperty Name="Ciudad" Relationship="Self.FK__Proveedor__idCiu__239E4DCF" FromRole="Proveedor" ToRole="Ciudad" />
-          <NavigationProperty Name="Habitacion" Relationship="Self.FK__Habitacio__idPro__37A5467C" FromRole="Proveedor" ToRole="Habitacion" />
-          <NavigationProperty Name="Pais" Relationship="Self.FK__Proveedor__idPai__22AA2996" FromRole="Proveedor" ToRole="Pais" />
-          <NavigationProperty Name="ProgVuelo" Relationship="Self.FK__ProgVuelo__idPro__2D27B809" FromRole="Proveedor" ToRole="ProgVuelo" />
+          <NavigationProperty Name="Habitacions" Relationship="Self.FK__Habitacio__idPro__37A5467C" FromRole="Proveedor" ToRole="Habitacion" />
+          <NavigationProperty Name="Pai" Relationship="Self.FK__Proveedor__idPai__22AA2996" FromRole="Proveedor" ToRole="Pais" />
+          <NavigationProperty Name="ProgVueloes" Relationship="Self.FK__ProgVuelo__idPro__2D27B809" FromRole="Proveedor" ToRole="ProgVuelo" />
           <NavigationProperty Name="TipoServicio" Relationship="Self.FK__Proveedor__idTip__21B6055D" FromRole="Proveedor" ToRole="TipoServicio" />
         </EntityType>
         <EntityType Name="Reserva">
@@ -826,7 +857,7 @@
           <Property Name="nroPago" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="GestionPaquete" Relationship="Self.FK__Reserva__idPaque__45F365D3" FromRole="Reserva" ToRole="GestionPaquete" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -842,7 +873,7 @@
           </Key>
           <Property Name="idTipoHabitacion" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="tipoHabitacion1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Habitacion" Relationship="Self.FK__Habitacio__idTip__398D8EEE" FromRole="TipoHabitacion" ToRole="Habitacion" />
+          <NavigationProperty Name="Habitacions" Relationship="Self.FK__Habitacio__idTip__398D8EEE" FromRole="TipoHabitacion" ToRole="Habitacion" />
         </EntityType>
         <EntityType Name="TipoPaquete">
           <Key>
@@ -850,7 +881,7 @@
           </Key>
           <Property Name="idTipoPaquete" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="nombTipoPaquete" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="GestionPaquete" Relationship="Self.FK__GestionPa__idTip__3E52440B" FromRole="TipoPaquete" ToRole="GestionPaquete" />
+          <NavigationProperty Name="GestionPaquetes" Relationship="Self.FK__GestionPa__idTip__3E52440B" FromRole="TipoPaquete" ToRole="GestionPaquete" />
         </EntityType>
         <EntityType Name="TipoServicio">
           <Key>
@@ -858,7 +889,7 @@
           </Key>
           <Property Name="idTipoServicio" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Servicio" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Proveedor" Relationship="Self.FK__Proveedor__idTip__21B6055D" FromRole="TipoServicio" ToRole="Proveedor" />
+          <NavigationProperty Name="Proveedors" Relationship="Self.FK__Proveedor__idTip__21B6055D" FromRole="TipoServicio" ToRole="Proveedor" />
         </EntityType>
         <Association Name="FK__Aeropuert__idCiu__2A4B4B5E">
           <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
@@ -873,7 +904,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Aeropuert__idPai__29572725">
-          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
           <End Role="Aeropuerto" Type="Self.Aeropuerto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pais">
@@ -969,7 +1000,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Ciudad__idPais__1273C1CD">
-          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
           <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pais">
@@ -1029,7 +1060,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Cliente__idPais__15502E78">
-          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pais">
@@ -1041,7 +1072,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Empleado__idPais__1B0907CE">
-          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pais">
@@ -1053,7 +1084,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__GestionPa__idPai__3F466844">
-          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
           <End Role="GestionPaquete" Type="Self.GestionPaquete" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pais">
@@ -1125,7 +1156,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Proveedor__idPai__22AA2996">
-          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
           <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pais">
@@ -1160,133 +1191,174 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EasyTravelEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Aeropuerto" EntityType="Self.Aeropuerto" />
-          <EntitySet Name="Avion" EntityType="Self.Avion" />
-          <EntitySet Name="Cargo" EntityType="Self.Cargo" />
-          <EntitySet Name="CategoriaHotel" EntityType="Self.CategoriaHotel" />
-          <EntitySet Name="Ciudad" EntityType="Self.Ciudad" />
-          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
-          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
-          <EntitySet Name="EstadoReserva" EntityType="Self.EstadoReserva" />
-          <EntitySet Name="GestionPaquete" EntityType="Self.GestionPaquete" />
-          <EntitySet Name="Habitacion" EntityType="Self.Habitacion" />
-          <EntitySet Name="Pais" EntityType="Self.Pais" />
-          <EntitySet Name="ProgVuelo" EntityType="Self.ProgVuelo" />
-          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" />
-          <EntitySet Name="Reserva" EntityType="Self.Reserva" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="TipoHabitacion" EntityType="Self.TipoHabitacion" />
-          <EntitySet Name="TipoPaquete" EntityType="Self.TipoPaquete" />
-          <EntitySet Name="TipoServicio" EntityType="Self.TipoServicio" />
+        <EntityContainer Name="EasyTravelEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aeropuertoes" EntityType="Self.Aeropuerto" />
+          <EntitySet Name="Avions" EntityType="Self.Avion" />
+          <EntitySet Name="Cargoes" EntityType="Self.Cargo" />
+          <EntitySet Name="CategoriaHotels" EntityType="Self.CategoriaHotel" />
+          <EntitySet Name="Ciudads" EntityType="Self.Ciudad" />
+          <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+          <EntitySet Name="Empleadoes" EntityType="Self.Empleado" />
+          <EntitySet Name="EstadoReservas" EntityType="Self.EstadoReserva" />
+          <EntitySet Name="GestionPaquetes" EntityType="Self.GestionPaquete" />
+          <EntitySet Name="Habitacions" EntityType="Self.Habitacion" />
+          <EntitySet Name="Pais" EntityType="Self.Pai" />
+          <EntitySet Name="ProgVueloes" EntityType="Self.ProgVuelo" />
+          <EntitySet Name="Proveedors" EntityType="Self.Proveedor" />
+          <EntitySet Name="Reservas" EntityType="Self.Reserva" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TipoHabitacions" EntityType="Self.TipoHabitacion" />
+          <EntitySet Name="TipoPaquetes" EntityType="Self.TipoPaquete" />
+          <EntitySet Name="TipoServicios" EntityType="Self.TipoServicio" />
           <AssociationSet Name="FK__Aeropuert__idCiu__2A4B4B5E" Association="Self.FK__Aeropuert__idCiu__2A4B4B5E">
-            <End Role="Ciudad" EntitySet="Ciudad" />
-            <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+            <End Role="Ciudad" EntitySet="Ciudads" />
+            <End Role="Aeropuerto" EntitySet="Aeropuertoes" />
           </AssociationSet>
           <AssociationSet Name="FK__Aeropuert__idPai__29572725" Association="Self.FK__Aeropuert__idPai__29572725">
             <End Role="Pais" EntitySet="Pais" />
-            <End Role="Aeropuerto" EntitySet="Aeropuerto" />
+            <End Role="Aeropuerto" EntitySet="Aeropuertoes" />
           </AssociationSet>
           <AssociationSet Name="FK__ProgVuelo__escal__30F848ED" Association="Self.FK__ProgVuelo__escal__30F848ED">
-            <End Role="Aeropuerto" EntitySet="Aeropuerto" />
-            <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+            <End Role="Aeropuerto" EntitySet="Aeropuertoes" />
+            <End Role="ProgVuelo" EntitySet="ProgVueloes" />
           </AssociationSet>
           <AssociationSet Name="FK__ProgVuelo__punto__2F10007B" Association="Self.FK__ProgVuelo__punto__2F10007B">
-            <End Role="Aeropuerto" EntitySet="Aeropuerto" />
-            <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+            <End Role="Aeropuerto" EntitySet="Aeropuertoes" />
+            <End Role="ProgVuelo" EntitySet="ProgVueloes" />
           </AssociationSet>
           <AssociationSet Name="FK__ProgVuelo__punto__300424B4" Association="Self.FK__ProgVuelo__punto__300424B4">
-            <End Role="Aeropuerto" EntitySet="Aeropuerto" />
-            <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+            <End Role="Aeropuerto" EntitySet="Aeropuertoes" />
+            <End Role="ProgVuelo" EntitySet="ProgVueloes" />
           </AssociationSet>
           <AssociationSet Name="FK__Avion__idProveed__267ABA7A" Association="Self.FK__Avion__idProveed__267ABA7A">
-            <End Role="Proveedor" EntitySet="Proveedor" />
-            <End Role="Avion" EntitySet="Avion" />
+            <End Role="Proveedor" EntitySet="Proveedors" />
+            <End Role="Avion" EntitySet="Avions" />
           </AssociationSet>
           <AssociationSet Name="FK__ProgVuelo__idAvi__2E1BDC42" Association="Self.FK__ProgVuelo__idAvi__2E1BDC42">
-            <End Role="Avion" EntitySet="Avion" />
-            <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+            <End Role="Avion" EntitySet="Avions" />
+            <End Role="ProgVuelo" EntitySet="ProgVueloes" />
           </AssociationSet>
           <AssociationSet Name="FK__Empleado__idCarg__1CF15040" Association="Self.FK__Empleado__idCarg__1CF15040">
-            <End Role="Cargo" EntitySet="Cargo" />
-            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Cargo" EntitySet="Cargoes" />
+            <End Role="Empleado" EntitySet="Empleadoes" />
           </AssociationSet>
           <AssociationSet Name="FK__Habitacio__idCat__38996AB5" Association="Self.FK__Habitacio__idCat__38996AB5">
-            <End Role="CategoriaHotel" EntitySet="CategoriaHotel" />
-            <End Role="Habitacion" EntitySet="Habitacion" />
+            <End Role="CategoriaHotel" EntitySet="CategoriaHotels" />
+            <End Role="Habitacion" EntitySet="Habitacions" />
           </AssociationSet>
           <AssociationSet Name="FK__Ciudad__idPais__1273C1CD" Association="Self.FK__Ciudad__idPais__1273C1CD">
             <End Role="Pais" EntitySet="Pais" />
-            <End Role="Ciudad" EntitySet="Ciudad" />
+            <End Role="Ciudad" EntitySet="Ciudads" />
           </AssociationSet>
           <AssociationSet Name="FK__Cliente__idCiuda__164452B1" Association="Self.FK__Cliente__idCiuda__164452B1">
-            <End Role="Ciudad" EntitySet="Ciudad" />
-            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Ciudad" EntitySet="Ciudads" />
+            <End Role="Cliente" EntitySet="Clientes" />
           </AssociationSet>
           <AssociationSet Name="FK__Empleado__idCiud__1BFD2C07" Association="Self.FK__Empleado__idCiud__1BFD2C07">
-            <End Role="Ciudad" EntitySet="Ciudad" />
-            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Ciudad" EntitySet="Ciudads" />
+            <End Role="Empleado" EntitySet="Empleadoes" />
           </AssociationSet>
           <AssociationSet Name="FK__GestionPa__idCiu__403A8C7D" Association="Self.FK__GestionPa__idCiu__403A8C7D">
-            <End Role="Ciudad" EntitySet="Ciudad" />
-            <End Role="GestionPaquete" EntitySet="GestionPaquete" />
+            <End Role="Ciudad" EntitySet="Ciudads" />
+            <End Role="GestionPaquete" EntitySet="GestionPaquetes" />
           </AssociationSet>
           <AssociationSet Name="FK__Proveedor__idCiu__239E4DCF" Association="Self.FK__Proveedor__idCiu__239E4DCF">
-            <End Role="Ciudad" EntitySet="Ciudad" />
-            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Ciudad" EntitySet="Ciudads" />
+            <End Role="Proveedor" EntitySet="Proveedors" />
           </AssociationSet>
           <AssociationSet Name="FK__Cliente__idPais__15502E78" Association="Self.FK__Cliente__idPais__15502E78">
             <End Role="Pais" EntitySet="Pais" />
-            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Cliente" EntitySet="Clientes" />
           </AssociationSet>
           <AssociationSet Name="FK__Empleado__idPais__1B0907CE" Association="Self.FK__Empleado__idPais__1B0907CE">
             <End Role="Pais" EntitySet="Pais" />
-            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Empleado" EntitySet="Empleadoes" />
           </AssociationSet>
           <AssociationSet Name="FK__GestionPa__idPai__3F466844" Association="Self.FK__GestionPa__idPai__3F466844">
             <End Role="Pais" EntitySet="Pais" />
-            <End Role="GestionPaquete" EntitySet="GestionPaquete" />
+            <End Role="GestionPaquete" EntitySet="GestionPaquetes" />
           </AssociationSet>
           <AssociationSet Name="FK__GestionPa__idPro__412EB0B6" Association="Self.FK__GestionPa__idPro__412EB0B6">
-            <End Role="ProgVuelo" EntitySet="ProgVuelo" />
-            <End Role="GestionPaquete" EntitySet="GestionPaquete" />
+            <End Role="ProgVuelo" EntitySet="ProgVueloes" />
+            <End Role="GestionPaquete" EntitySet="GestionPaquetes" />
           </AssociationSet>
           <AssociationSet Name="FK__GestionPa__idTip__3E52440B" Association="Self.FK__GestionPa__idTip__3E52440B">
-            <End Role="TipoPaquete" EntitySet="TipoPaquete" />
-            <End Role="GestionPaquete" EntitySet="GestionPaquete" />
+            <End Role="TipoPaquete" EntitySet="TipoPaquetes" />
+            <End Role="GestionPaquete" EntitySet="GestionPaquetes" />
           </AssociationSet>
           <AssociationSet Name="FK__Reserva__idPaque__45F365D3" Association="Self.FK__Reserva__idPaque__45F365D3">
-            <End Role="GestionPaquete" EntitySet="GestionPaquete" />
-            <End Role="Reserva" EntitySet="Reserva" />
+            <End Role="GestionPaquete" EntitySet="GestionPaquetes" />
+            <End Role="Reserva" EntitySet="Reservas" />
           </AssociationSet>
           <AssociationSet Name="FK__Habitacio__idPro__37A5467C" Association="Self.FK__Habitacio__idPro__37A5467C">
-            <End Role="Proveedor" EntitySet="Proveedor" />
-            <End Role="Habitacion" EntitySet="Habitacion" />
+            <End Role="Proveedor" EntitySet="Proveedors" />
+            <End Role="Habitacion" EntitySet="Habitacions" />
           </AssociationSet>
           <AssociationSet Name="FK__Habitacio__idTip__398D8EEE" Association="Self.FK__Habitacio__idTip__398D8EEE">
-            <End Role="TipoHabitacion" EntitySet="TipoHabitacion" />
-            <End Role="Habitacion" EntitySet="Habitacion" />
+            <End Role="TipoHabitacion" EntitySet="TipoHabitacions" />
+            <End Role="Habitacion" EntitySet="Habitacions" />
           </AssociationSet>
           <AssociationSet Name="FK__Proveedor__idPai__22AA2996" Association="Self.FK__Proveedor__idPai__22AA2996">
             <End Role="Pais" EntitySet="Pais" />
-            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Proveedor" EntitySet="Proveedors" />
           </AssociationSet>
           <AssociationSet Name="FK__ProgVuelo__idPro__2D27B809" Association="Self.FK__ProgVuelo__idPro__2D27B809">
-            <End Role="Proveedor" EntitySet="Proveedor" />
-            <End Role="ProgVuelo" EntitySet="ProgVuelo" />
+            <End Role="Proveedor" EntitySet="Proveedors" />
+            <End Role="ProgVuelo" EntitySet="ProgVueloes" />
           </AssociationSet>
           <AssociationSet Name="FK__Proveedor__idTip__21B6055D" Association="Self.FK__Proveedor__idTip__21B6055D">
-            <End Role="TipoServicio" EntitySet="TipoServicio" />
-            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="TipoServicio" EntitySet="TipoServicios" />
+            <End Role="Proveedor" EntitySet="Proveedors" />
           </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(EasyTravelModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(EasyTravelModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EasyTravelModelStoreContainer" CdmEntityContainer="EasyTravelEntities1">
-          <EntitySetMapping Name="Aeropuerto">
+        <EntityContainerMapping StorageEntityContainer="EasyTravelModelStoreContainer" CdmEntityContainer="EasyTravelEntities2">
+          <EntitySetMapping Name="Aeropuertoes">
             <EntityTypeMapping TypeName="EasyTravelModel.Aeropuerto">
               <MappingFragment StoreEntitySet="Aeropuerto">
                 <ScalarProperty Name="idAeropuerto" ColumnName="idAeropuerto" />
@@ -1297,7 +1369,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Avion">
+          <EntitySetMapping Name="Avions">
             <EntityTypeMapping TypeName="EasyTravelModel.Avion">
               <MappingFragment StoreEntitySet="Avion">
                 <ScalarProperty Name="idAvion" ColumnName="idAvion" />
@@ -1306,7 +1378,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cargo">
+          <EntitySetMapping Name="Cargoes">
             <EntityTypeMapping TypeName="EasyTravelModel.Cargo">
               <MappingFragment StoreEntitySet="Cargo">
                 <ScalarProperty Name="idCargo" ColumnName="idCargo" />
@@ -1314,7 +1386,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CategoriaHotel">
+          <EntitySetMapping Name="CategoriaHotels">
             <EntityTypeMapping TypeName="EasyTravelModel.CategoriaHotel">
               <MappingFragment StoreEntitySet="CategoriaHotel">
                 <ScalarProperty Name="idCategoriaHotel" ColumnName="idCategoriaHotel" />
@@ -1322,7 +1394,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Ciudad">
+          <EntitySetMapping Name="Ciudads">
             <EntityTypeMapping TypeName="EasyTravelModel.Ciudad">
               <MappingFragment StoreEntitySet="Ciudad">
                 <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
@@ -1331,7 +1403,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cliente">
+          <EntitySetMapping Name="Clientes">
             <EntityTypeMapping TypeName="EasyTravelModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
@@ -1350,7 +1422,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Empleado">
+          <EntitySetMapping Name="Empleadoes">
             <EntityTypeMapping TypeName="EasyTravelModel.Empleado">
               <MappingFragment StoreEntitySet="Empleado">
                 <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
@@ -1369,7 +1441,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EstadoReserva">
+          <EntitySetMapping Name="EstadoReservas">
             <EntityTypeMapping TypeName="EasyTravelModel.EstadoReserva">
               <MappingFragment StoreEntitySet="EstadoReserva">
                 <ScalarProperty Name="idEstadoReserva" ColumnName="idEstadoReserva" />
@@ -1377,7 +1449,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GestionPaquete">
+          <EntitySetMapping Name="GestionPaquetes">
             <EntityTypeMapping TypeName="EasyTravelModel.GestionPaquete">
               <MappingFragment StoreEntitySet="GestionPaquete">
                 <ScalarProperty Name="idPaquete" ColumnName="idPaquete" />
@@ -1396,7 +1468,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Habitacion">
+          <EntitySetMapping Name="Habitacions">
             <EntityTypeMapping TypeName="EasyTravelModel.Habitacion">
               <MappingFragment StoreEntitySet="Habitacion">
                 <ScalarProperty Name="idHabitacion" ColumnName="idHabitacion" />
@@ -1409,14 +1481,14 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pais">
-            <EntityTypeMapping TypeName="EasyTravelModel.Pais">
+            <EntityTypeMapping TypeName="EasyTravelModel.Pai">
               <MappingFragment StoreEntitySet="Pais">
                 <ScalarProperty Name="idPais" ColumnName="idPais" />
                 <ScalarProperty Name="nombPais" ColumnName="nombPais" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ProgVuelo">
+          <EntitySetMapping Name="ProgVueloes">
             <EntityTypeMapping TypeName="EasyTravelModel.ProgVuelo">
               <MappingFragment StoreEntitySet="ProgVuelo">
                 <ScalarProperty Name="idProgVuelo" ColumnName="idProgVuelo" />
@@ -1430,7 +1502,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Proveedor">
+          <EntitySetMapping Name="Proveedors">
             <EntityTypeMapping TypeName="EasyTravelModel.Proveedor">
               <MappingFragment StoreEntitySet="Proveedor">
                 <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
@@ -1443,7 +1515,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Reserva">
+          <EntitySetMapping Name="Reservas">
             <EntityTypeMapping TypeName="EasyTravelModel.Reserva">
               <MappingFragment StoreEntitySet="Reserva">
                 <ScalarProperty Name="nroReserva" ColumnName="nroReserva" />
@@ -1460,7 +1532,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="EasyTravelModel.sysdiagrams">
+            <EntityTypeMapping TypeName="EasyTravelModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1470,7 +1542,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TipoHabitacion">
+          <EntitySetMapping Name="TipoHabitacions">
             <EntityTypeMapping TypeName="EasyTravelModel.TipoHabitacion">
               <MappingFragment StoreEntitySet="TipoHabitacion">
                 <ScalarProperty Name="idTipoHabitacion" ColumnName="idTipoHabitacion" />
@@ -1478,7 +1550,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TipoPaquete">
+          <EntitySetMapping Name="TipoPaquetes">
             <EntityTypeMapping TypeName="EasyTravelModel.TipoPaquete">
               <MappingFragment StoreEntitySet="TipoPaquete">
                 <ScalarProperty Name="idTipoPaquete" ColumnName="idTipoPaquete" />
@@ -1486,7 +1558,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TipoServicio">
+          <EntitySetMapping Name="TipoServicios">
             <EntityTypeMapping TypeName="EasyTravelModel.TipoServicio">
               <MappingFragment StoreEntitySet="TipoServicio">
                 <ScalarProperty Name="idTipoServicio" ColumnName="idTipoServicio" />
@@ -1494,6 +1566,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="EasyTravelModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="EasyTravelModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="EasyTravelModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="EasyTravelModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EasyTravelModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="EasyTravelModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EasyTravelModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="EasyTravelModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="EasyTravelModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1508,9 +1604,9 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
