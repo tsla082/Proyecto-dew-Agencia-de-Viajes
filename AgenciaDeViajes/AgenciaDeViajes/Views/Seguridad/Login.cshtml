@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Login EasyTravel";
+    Layout = "~/Views/Shared/Background_layout.cshtml";
+}
+
+<div id="myventana" class=" " tabindex="-1" role="dialog" aria-labelledby="mymodallabel" aria-hidden="true">
+    <div class="modal-dialog-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+  
+                <h4>
+                    <i class="glyphicon glyphicon-lock"></i>Login Easy Travel
+                </h4>
+
+            </div>
+
+            <form action="-----------------------------------" method="post">
+
+                <div class="modal-body">
+
+                    <table align="center">
+
+                        <tr>
+                            <td style="width: 113px; "><h4>Usuario</h4></td>
+                            <td>
+                                <input type="text" name="user" class="form-control" id="usuario" id="inputSeleccionado" placeholder="usuario">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 113px; "><h4>Clave</h4></td>
+                            <td><input type="password" name="pwd" class="form-control" id="claves" id="inputSeleccionado" placeholder="Contraseña"></td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="submit" class="btn btn-success" value="Entrar" style="float: right;margin-right: 5px;"></td>
+                            <td style="height: 65px; "><input type="reset" class="btn btn-primary" value="Borrar" style="float: left;margin-left: 5px;"> </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+            </form>
+            <div class="modal-footer">
+
+                <!-- 	<button type="reset" class="btn btn-primary">
+                cerrar
+                </button>  -->
+                <!-- Eres nuevo ?<a href="@Url.Action("RegistrarCliente","Clientes")"> "Registrate gratis aqui"</a> -->
+
+            </div>
+            <!-- <div class="modal-footer"> -->
+
+                <!-- 	<button type="reset" class="btn btn-primary">
+                cerrar
+                </button>  -->
+                <!-- Olvide mi clave <a href="RecuperarClave">"Recuperar clave aqui"</a> -->
+
+           <!--  </div> -->
+
+        </div>
+
+    </div>
+
+</div>

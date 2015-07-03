@@ -15,6 +15,8 @@ namespace AgenciaDeViajes.Controllers
 
         EasyTravelEntities2 agv = new EasyTravelEntities2();
 
+        List<Genero> genero = new List<Genero>();
+
         public ActionResult Inicio()
         {
 
@@ -46,14 +48,56 @@ namespace AgenciaDeViajes.Controllers
 
         public ActionResult RegistrarCliente()
         {
+            //cargar el modelo
+            Clientes clim = new Clientes();
 
+            //cargar paises
+            ViewBag.pais = new SelectList(agv.Pais.ToList(),"idPais","nombPais");
+            //cargar ciudades
+            ViewBag.ciudad = new SelectList(agv.Ciudads.ToList(), "idCiudad", "nombCiudad");
+            //cargar genero
 
-            return View();
+            Genero g = new Genero();
+            g.genero = "m";
+            g.value = "Masculino";
+            Genero g1 = new Genero();
+            g1.genero = "f";
+            g1.value = "Femenino";
+           
+            genero.Add(g);
+            genero.Add(g1);
+            ViewBag.genero = new SelectList(genero, "genero", "value");
+
+            return View(clim);
         }
         [HttpPost]
-        public ActionResult RegistrarCliente(AgenciaDeViajes.Models.Cliente cliente)
+        public ActionResult RegistrarCliente(Clientes cliente)
         {
-            return View();
+
+            //cargar paises
+            ViewBag.pais = new SelectList(agv.Pais.ToList(), "idPais", "nombPais",cliente.idPais);
+            //cargar ciudades
+            ViewBag.ciudad = new SelectList(agv.Ciudads.ToList(), "idCiudad", "nombCiudad",cliente.idCiudad);
+
+            Genero g = new Genero();
+            g.genero = "m";
+            g.value = "Masculino";
+            Genero g1 = new Genero();
+            g1.genero = "f";
+            g1.value = "Femenino";
+
+            genero.Add(g);
+            genero.Add(g1);
+            ViewBag.genero = new SelectList(genero, "genero", "value",cliente.genero);
+
+
+            if(ModelState.IsValid){
+
+                RedirectToAction("Inicio");
+                System.Console.WriteLine("exito");
+            }
+
+            return View(cliente);
         }
 
         public ActionResult Acercadenosotros( )

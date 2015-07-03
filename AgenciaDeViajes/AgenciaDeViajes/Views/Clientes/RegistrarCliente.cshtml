@@ -1,0 +1,281 @@
+﻿@model AgenciaDeViajes.Models.Clientes
+@{
+    ViewBag.Title = "Registrar Cliente";
+    Layout = "~/Views/Shared/Usuario_layout.cshtml";
+}
+
+ 
+
+@section head{
+    
+       <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Registro del Cliente
+        </h1>
+        <!-- inicio campos de registro -->
+        @using (Html.BeginForm()) {
+
+            <div class="row ">
+
+                <fieldset>
+
+                    <legend>Sus datos</legend>
+
+                    <!-- cols -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color: transparent;">
+                        <!-- rows -->
+                        <div class="row" style="background-color: transparent;">
+                            <!-- cols -->
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Codigo del cliente</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <!-- <input id="codigo" type="text" name="codigo" class="form-control" id="inputSeleccionado"  tabindex="1" readonly> -->
+                                        @Html.TextBoxFor(x => x.idCliente, htmlAttributes: new { id = "codigo", Class = "form-control", placeholder = "codigo de cliente", @readonly = true })
+                                        <h5 style="color:red"> @Html.ValidationMessageFor(x => x.idCliente)</h5>
+                                        </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Nombres</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.TextBoxFor(x => x.nombre, htmlAttributes: new { Class = "form-control", placeholder = "nombre del cliente", maxlength = "45" })
+                                        <h5 style="color:red">
+                                            @Html.ValidationMessageFor(x => x.nombre)
+                                        </h5>
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Apellido Paterno</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.TextBoxFor(x => x.apellidopat, htmlAttributes: new { Class = "form-control", placeholder = "apellido paterno" })
+                                        <h5 style="color:red">
+                                            @Html.ValidationMessageFor(x => x.apellidopat)
+                                        </h5>
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Apellido Materno</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.TextBoxFor(x => x.apellidomat, htmlAttributes: new { Class = "form-control", placeholder = "apellido materno" })
+                                        <h5 style="color:red">
+                                            @Html.ValidationMessageFor(x => x.apellidomat)
+                                        </h5>
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Genero</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.DropDownListFor(x => x.genero, (SelectList)ViewBag.genero, htmlAttributes: new { Class = "form-control" })
+
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Fecha de nacimiento</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.TextBoxFor(x => x.fechanacimiento, htmlAttributes: new { Class = "form-control", placeholder = "dia-mes-full año" })
+                                        <h5 style="color:red">
+                                            @Html.ValidationMessageFor(x => x.fechanacimiento)
+                                        </h5>
+                                        <!-- <input id="fechanacimiento" type="text" name="fechanacimiento" class=" datepicker form-control " id="inputSeleccionado" placeholder="año-mes-dia" tabindex="1"> -->
+                                      </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>DNI</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.TextBoxFor(x => x.docId, htmlAttributes: new { Class = "form-control", placeholder = "DNI" })
+                                        <h5 style="color:red"> @Html.ValidationMessageFor(x => x.docId)</h5>
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+
+
+                            </div>
+
+                            <!-- end cols -->
+                            <!-- cols -->
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Pais</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.DropDownListFor(x => x.idPais, (SelectList)ViewBag.pais, htmlAttributes: new { Class = "form-control" })
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Ciudad</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.DropDownListFor(x => x.idCiudad, (SelectList)ViewBag.ciudad, htmlAttributes: new { Class = "form-control" })
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Dirección</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.TextBoxFor(x => x.direccion, htmlAttributes: new { Class = "form-control", placeholder = "Direccion" })
+                                        <h5 style="color:red"> @Html.ValidationMessageFor(x => x.direccion)</h5>
+</div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Correo</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.TextBoxFor(x => x.correo, htmlAttributes: new { Class = "form-control", placeholder = "correo" })
+                                        <h5 style="color:red"> @Html.ValidationMessageFor(x => x.correo)</h5>
+</div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Clave</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.TextBoxFor(x => x.clave, htmlAttributes: new { Class = "form-control", placeholder = "clave" })
+                                        <h5 style="color:red"> @Html.ValidationMessageFor(x => x.clave) </h5>
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                                <!-- row -->
+                                <div class="row">
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        <h4>Fecha de inscipción</h4>
+                                    </div>
+                                    <!-- end col -->
+                                    <!-- col -->
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
+                                        @Html.TextBoxFor(x => x.fechreg, htmlAttributes: new { Class = "form-control", placeholder = "dia/mes/full year", @readonly = true })
+                                        <h5 style="color:red"> @Html.ValidationMessageFor(x => x.fechreg) </h5>
+</div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+
+                            </div>
+                            <!-- end cols -->
+
+                        </div>
+                        <!-- end rows -->
+                    </div>
+                    <!--end cols -->
+                </fieldset>
+
+            </div>
+
+            <div class="row">
+
+                <!-- end cols -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color: transparent;margin-top: 5px;">
+                    <div class="text-right col-xs-4 col-sm-2 col-md-2 col-lg-4" style="margin-right: 15px;">
+                        <input type="submit" name="Registrar" value="Registrar" onclick="obtenerfecha();" class="btn btn-primary " style="font-family: sans-serif;">
+                    </div>
+                      <div class="col-xs-4 col-sm-2 col-md-2 col-lg-4">
+                        <button type="reset" class="btn btn-danger" onclick="obtenerfecha();">Limpiar</button>
+                    </div>  
+                </div>
+                <!-- end cols -->
+
+            </div>
+    <div style="color:red">
+      <!--    Html.ValidationSummary()  -->
+    </div>
+        }
+
+            <!-- fin -->
+        </div>
+
+    </div>
+
+    }
+ 

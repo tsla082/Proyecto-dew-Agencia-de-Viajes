@@ -9,20 +9,45 @@ namespace AgenciaDeViajes.Models
 {
     public class Clientes
     {
-        [Required(ErrorMessage="Ingrese el id del Cliente",AllowEmptyStrings=false)]
-        String idCliente {get;set;}
-        String nombre {get;set;}
-        String apellidopat {get;set;}
-        String apellidomat {get;set;}
-        String Stringgenero {get;set;}
-        String fechanacimiento {get;set;}
-        String docId {get;set;}
-        String idPais {get;set;}
-        String idCiudad {get;set;}
-        String direccion {get;set;}
-        String correo {get;set;}
-        String clave {get;set;}
-        DateTime  fechreg {get;set;}
+        [Required(ErrorMessage="Ingrese el id del Cliente")]
+        public  String idCliente {get;set;}
+
+        [Required(AllowEmptyStrings=false,ErrorMessage=" Ingresar su nombre")]
+
+        public  String nombre { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = " Ingresar su apellido paterno")]
+        public String apellidopat { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = " Ingresar su apellido manterno")]
+        public String apellidomat { get; set; }
+
+        [Required(ErrorMessage = " Ingresar su genero") ]
+        public String genero { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = " Ingresar su fecha de nacimiento")]
+        public String fechanacimiento { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = " Ingresar su documento de identidad")]
+        public String docId { get; set; }
+
+        [Required(ErrorMessage = " Ingresar su pais") ]
+        public String idPais { get; set; }
+
+        [Required(ErrorMessage = " Ingresar su ciudad")]
+        public String idCiudad { get; set; }
+
+        [Required(AllowEmptyStrings = false,ErrorMessage = " Ingresar su direccion")]
+        public String direccion { get; set; }
+
+        [Required(AllowEmptyStrings = false,ErrorMessage = " Ingresar su correo")]
+        public String correo { get; set; }
+
+        [Required(AllowEmptyStrings = false,ErrorMessage = " Ingresar su clave")]
+        public String clave { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime fechreg { get; set; }
 
     }
 }

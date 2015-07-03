@@ -188,6 +188,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\PaquetesController.cs" />
+    <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -228,9 +229,11 @@
     <Compile Include="Models\Empleado.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Empleados.cs" />
     <Compile Include="Models\EstadoReserva.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Genero.cs" />
     <Compile Include="Models\GestionPaquete.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
@@ -579,12 +582,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Usuario_layout.cshtml" />
     <Content Include="Views\Clientes\Inicio.cshtml" />
-    <Content Include="Views\Paquetes\Inicio.cshtml" />
     <Content Include="Views\Paquetes\MenuPrincipal.cshtml" />
     <Content Include="Views\Shared\Background_layout.cshtml" />
     <Content Include="Views\Shared\_Partialpaquetes.cshtml" />
     <Content Include="Views\Clientes\PaquetesXtipo.cshtml" />
     <Content Include="Views\Clientes\Contactenos.cshtml" />
+    <Content Include="Views\Clientes\RegistrarCliente.cshtml" />
+    <Content Include="Views\Seguridad\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
