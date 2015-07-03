@@ -29,6 +29,6 @@ namespace AgenciaDeViajes.Models
         public Nullable<System.DateTime> fechreg { get; set; }
     
         public virtual Ciudad Ciudad { get; set; }
-        public virtual Pai Pai { get; set; }
+        public virtual Pais Pais { get; set; }
     }
 }

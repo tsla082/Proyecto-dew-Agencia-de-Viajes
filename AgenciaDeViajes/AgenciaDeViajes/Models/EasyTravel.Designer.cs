@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\CSharp DEW\Proyecto DEW Agencia de Viajes\Proyecto-dew\AgenciaDeViajes\AgenciaDeViajes\Models\EasyTravel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\LUIS\Documents\GitHub\Proyecto-dew-Agencia-de-Viajes\AgenciaDeViajes\AgenciaDeViajes\Models\EasyTravel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

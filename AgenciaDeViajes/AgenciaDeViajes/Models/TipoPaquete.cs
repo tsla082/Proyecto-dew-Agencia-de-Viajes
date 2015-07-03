@@ -16,12 +16,12 @@ namespace AgenciaDeViajes.Models
     {
         public TipoPaquete()
         {
-            this.GestionPaquetes = new HashSet<GestionPaquete>();
+            this.GestionPaquete = new HashSet<GestionPaquete>();
         }
     
         public string idTipoPaquete { get; set; }
         public string nombTipoPaquete { get; set; }
     
-        public virtual ICollection<GestionPaquete> GestionPaquetes { get; set; }
+        public virtual ICollection<GestionPaquete> GestionPaquete { get; set; }
     }
 }

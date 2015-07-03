@@ -16,12 +16,12 @@ namespace AgenciaDeViajes.Models
     {
         public Cargo()
         {
-            this.Empleadoes = new HashSet<Empleado>();
+            this.Empleado = new HashSet<Empleado>();
         }
     
         public string idCargo { get; set; }
         public string nombCargo { get; set; }
     
-        public virtual ICollection<Empleado> Empleadoes { get; set; }
+        public virtual ICollection<Empleado> Empleado { get; set; }
     }
 }

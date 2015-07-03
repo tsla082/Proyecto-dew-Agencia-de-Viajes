@@ -40,7 +40,7 @@
                                     <!-- col -->
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
                                         <!-- <input id="codigo" type="text" name="codigo" class="form-control" id="inputSeleccionado"  tabindex="1" readonly> -->
-                                        @Html.TextBoxFor(x => x.idCliente, htmlAttributes: new { id = "codigo", Class = "form-control", placeholder = "codigo de cliente", @readonly = true })
+                                        @Html.TextBoxFor(x => x.idCliente, htmlAttributes: new { id = "codigo", Class = "form-control", placeholder = "codigo de cliente" })
                                         <h5 style="color:red"> @Html.ValidationMessageFor(x => x.idCliente)</h5>
                                         </div>
                                     <!-- end col -->

@@ -26,7 +26,7 @@ namespace AgenciaDeViajes.Controllers
             return View();
         }
 
-        public static List<Cliente> clientelista = new List<Cliente>();
+        public static List<Clientes> clientelista = new List<Clientes>();
 
         public static List<Empleados> Empleadoslista = new List<Empleados>();
 

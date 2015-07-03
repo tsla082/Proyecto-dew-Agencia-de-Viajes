@@ -16,9 +16,9 @@ namespace AgenciaDeViajes.Models
     {
         public Proveedor()
         {
-            this.Avions = new HashSet<Avion>();
-            this.Habitacions = new HashSet<Habitacion>();
-            this.ProgVueloes = new HashSet<ProgVuelo>();
+            this.Avion = new HashSet<Avion>();
+            this.Habitacion = new HashSet<Habitacion>();
+            this.ProgVuelo = new HashSet<ProgVuelo>();
         }
     
         public string idProveedor { get; set; }
@@ -29,11 +29,11 @@ namespace AgenciaDeViajes.Models
         public string idCiudad { get; set; }
         public string direcProveedor { get; set; }
     
-        public virtual ICollection<Avion> Avions { get; set; }
+        public virtual ICollection<Avion> Avion { get; set; }
         public virtual Ciudad Ciudad { get; set; }
-        public virtual ICollection<Habitacion> Habitacions { get; set; }
-        public virtual Pai Pai { get; set; }
-        public virtual ICollection<ProgVuelo> ProgVueloes { get; set; }
+        public virtual ICollection<Habitacion> Habitacion { get; set; }
+        public virtual Pais Pais { get; set; }
+        public virtual ICollection<ProgVuelo> ProgVuelo { get; set; }
         public virtual TipoServicio TipoServicio { get; set; }
     }
 }

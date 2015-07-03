@@ -13,14 +13,14 @@ namespace AgenciaDeViajes.Controllers
         //
         // GET: /Cliente/
 
-        EasyTravelEntities2 agv = new EasyTravelEntities2();
-
+        EasyTravelEntities agv = new EasyTravelEntities();
+   
         List<Genero> genero = new List<Genero>();
 
         public ActionResult Inicio()
         {
 
-            return View(agv.GestionPaquetes.OrderBy(x=>x.findisponibilidad).Take(8));
+            return View(agv.GestionPaquete.OrderBy(x=>x.findisponibilidad).Take(8));
         }
 
       
@@ -43,7 +43,7 @@ namespace AgenciaDeViajes.Controllers
 
             }
 
-            return View(agv.GestionPaquetes.Where(x => x.idTipopaquete.Equals(tipopaquete)).ToList());
+            return View(agv.GestionPaquete.Where(x => x.idTipopaquete.Equals(tipopaquete)).ToList());
         }
 
         public ActionResult RegistrarCliente()
@@ -54,7 +54,7 @@ namespace AgenciaDeViajes.Controllers
             //cargar paises
             ViewBag.pais = new SelectList(agv.Pais.ToList(),"idPais","nombPais");
             //cargar ciudades
-            ViewBag.ciudad = new SelectList(agv.Ciudads.ToList(), "idCiudad", "nombCiudad");
+            ViewBag.ciudad = new SelectList(agv.Ciudad.ToList(), "idCiudad", "nombCiudad");
             //cargar genero
 
             Genero g = new Genero();
@@ -77,7 +77,7 @@ namespace AgenciaDeViajes.Controllers
             //cargar paises
             ViewBag.pais = new SelectList(agv.Pais.ToList(), "idPais", "nombPais",cliente.idPais);
             //cargar ciudades
-            ViewBag.ciudad = new SelectList(agv.Ciudads.ToList(), "idCiudad", "nombCiudad",cliente.idCiudad);
+            ViewBag.ciudad = new SelectList(agv.Ciudad.ToList(), "idCiudad", "nombCiudad",cliente.idCiudad);
 
             Genero g = new Genero();
             g.genero = "m";
@@ -93,8 +93,14 @@ namespace AgenciaDeViajes.Controllers
 
             if(ModelState.IsValid){
 
-                RedirectToAction("Inicio");
                 System.Console.WriteLine("exito");
+
+                Clientes cli = cliente;
+
+                
+
+                return RedirectToAction("Inicio");
+                
             }
 
             return View(cliente);

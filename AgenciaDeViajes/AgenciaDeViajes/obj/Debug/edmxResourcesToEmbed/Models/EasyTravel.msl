@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EasyTravelModelStoreContainer" CdmEntityContainer="EasyTravelEntities2">
-    <EntitySetMapping Name="Aeropuertoes">
+  <EntityContainerMapping StorageEntityContainer="EasyTravelModelStoreContainer" CdmEntityContainer="EasyTravelEntities">
+    <EntitySetMapping Name="Aeropuerto">
       <EntityTypeMapping TypeName="EasyTravelModel.Aeropuerto">
         <MappingFragment StoreEntitySet="Aeropuerto">
           <ScalarProperty Name="idAeropuerto" ColumnName="idAeropuerto" />
@@ -12,7 +12,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Avions">
+    <EntitySetMapping Name="Avion">
       <EntityTypeMapping TypeName="EasyTravelModel.Avion">
         <MappingFragment StoreEntitySet="Avion">
           <ScalarProperty Name="idAvion" ColumnName="idAvion" />
@@ -21,7 +21,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Cargoes">
+    <EntitySetMapping Name="Cargo">
       <EntityTypeMapping TypeName="EasyTravelModel.Cargo">
         <MappingFragment StoreEntitySet="Cargo">
           <ScalarProperty Name="idCargo" ColumnName="idCargo" />
@@ -29,7 +29,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CategoriaHotels">
+    <EntitySetMapping Name="CategoriaHotel">
       <EntityTypeMapping TypeName="EasyTravelModel.CategoriaHotel">
         <MappingFragment StoreEntitySet="CategoriaHotel">
           <ScalarProperty Name="idCategoriaHotel" ColumnName="idCategoriaHotel" />
@@ -37,7 +37,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Ciudads">
+    <EntitySetMapping Name="Ciudad">
       <EntityTypeMapping TypeName="EasyTravelModel.Ciudad">
         <MappingFragment StoreEntitySet="Ciudad">
           <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
@@ -46,7 +46,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Clientes">
+    <EntitySetMapping Name="Cliente">
       <EntityTypeMapping TypeName="EasyTravelModel.Cliente">
         <MappingFragment StoreEntitySet="Cliente">
           <ScalarProperty Name="idCliente" ColumnName="idCliente" />
@@ -65,7 +65,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Empleadoes">
+    <EntitySetMapping Name="Empleado">
       <EntityTypeMapping TypeName="EasyTravelModel.Empleado">
         <MappingFragment StoreEntitySet="Empleado">
           <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
@@ -84,7 +84,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EstadoReservas">
+    <EntitySetMapping Name="EstadoReserva">
       <EntityTypeMapping TypeName="EasyTravelModel.EstadoReserva">
         <MappingFragment StoreEntitySet="EstadoReserva">
           <ScalarProperty Name="idEstadoReserva" ColumnName="idEstadoReserva" />
@@ -92,7 +92,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="GestionPaquetes">
+    <EntitySetMapping Name="GestionPaquete">
       <EntityTypeMapping TypeName="EasyTravelModel.GestionPaquete">
         <MappingFragment StoreEntitySet="GestionPaquete">
           <ScalarProperty Name="idPaquete" ColumnName="idPaquete" />
@@ -111,7 +111,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Habitacions">
+    <EntitySetMapping Name="Habitacion">
       <EntityTypeMapping TypeName="EasyTravelModel.Habitacion">
         <MappingFragment StoreEntitySet="Habitacion">
           <ScalarProperty Name="idHabitacion" ColumnName="idHabitacion" />
@@ -124,14 +124,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pais">
-      <EntityTypeMapping TypeName="EasyTravelModel.Pai">
+      <EntityTypeMapping TypeName="EasyTravelModel.Pais">
         <MappingFragment StoreEntitySet="Pais">
           <ScalarProperty Name="idPais" ColumnName="idPais" />
           <ScalarProperty Name="nombPais" ColumnName="nombPais" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ProgVueloes">
+    <EntitySetMapping Name="ProgVuelo">
       <EntityTypeMapping TypeName="EasyTravelModel.ProgVuelo">
         <MappingFragment StoreEntitySet="ProgVuelo">
           <ScalarProperty Name="idProgVuelo" ColumnName="idProgVuelo" />
@@ -145,7 +145,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Proveedors">
+    <EntitySetMapping Name="Proveedor">
       <EntityTypeMapping TypeName="EasyTravelModel.Proveedor">
         <MappingFragment StoreEntitySet="Proveedor">
           <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
@@ -158,7 +158,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Reservas">
+    <EntitySetMapping Name="Reserva">
       <EntityTypeMapping TypeName="EasyTravelModel.Reserva">
         <MappingFragment StoreEntitySet="Reserva">
           <ScalarProperty Name="nroReserva" ColumnName="nroReserva" />
@@ -175,7 +175,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="EasyTravelModel.sysdiagram">
+      <EntityTypeMapping TypeName="EasyTravelModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -185,7 +185,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TipoHabitacions">
+    <EntitySetMapping Name="TipoHabitacion">
       <EntityTypeMapping TypeName="EasyTravelModel.TipoHabitacion">
         <MappingFragment StoreEntitySet="TipoHabitacion">
           <ScalarProperty Name="idTipoHabitacion" ColumnName="idTipoHabitacion" />
@@ -193,7 +193,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TipoPaquetes">
+    <EntitySetMapping Name="TipoPaquete">
       <EntityTypeMapping TypeName="EasyTravelModel.TipoPaquete">
         <MappingFragment StoreEntitySet="TipoPaquete">
           <ScalarProperty Name="idTipoPaquete" ColumnName="idTipoPaquete" />
@@ -201,7 +201,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TipoServicios">
+    <EntitySetMapping Name="TipoServicio">
       <EntityTypeMapping TypeName="EasyTravelModel.TipoServicio">
         <MappingFragment StoreEntitySet="TipoServicio">
           <ScalarProperty Name="idTipoServicio" ColumnName="idTipoServicio" />

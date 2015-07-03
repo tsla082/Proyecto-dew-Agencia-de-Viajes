@@ -240,7 +240,7 @@
     <Compile Include="Models\Habitacion.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Pai.cs">
+    <Compile Include="Models\Pais.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Paquete.cs" />
@@ -259,7 +259,7 @@
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
+    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>EasyTravel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoHabitacion.cs">
@@ -277,9 +277,7 @@
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
     </Content>
-    <Content Include="Content\bootstrap\bootstrap.min.css">
-      <DependentUpon>bootstrap.css</DependentUpon>
-    </Content>
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap-rtl.css" />
     <Content Include="Content\css\bootstrap-rtl.min.css" />
     <Content Include="Content\css\bootstrap.css" />

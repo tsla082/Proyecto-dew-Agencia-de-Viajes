@@ -16,12 +16,12 @@ namespace AgenciaDeViajes.Models
     {
         public TipoServicio()
         {
-            this.Proveedors = new HashSet<Proveedor>();
+            this.Proveedor = new HashSet<Proveedor>();
         }
     
         public string idTipoServicio { get; set; }
         public string Servicio { get; set; }
     
-        public virtual ICollection<Proveedor> Proveedors { get; set; }
+        public virtual ICollection<Proveedor> Proveedor { get; set; }
     }
 }

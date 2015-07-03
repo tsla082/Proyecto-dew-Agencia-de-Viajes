@@ -16,12 +16,12 @@ namespace AgenciaDeViajes.Models
     {
         public CategoriaHotel()
         {
-            this.Habitacions = new HashSet<Habitacion>();
+            this.Habitacion = new HashSet<Habitacion>();
         }
     
         public string idCategoriaHotel { get; set; }
         public Nullable<int> numeroestrellas { get; set; }
     
-        public virtual ICollection<Habitacion> Habitacions { get; set; }
+        public virtual ICollection<Habitacion> Habitacion { get; set; }
     }
 }

@@ -46,7 +46,7 @@ namespace AgenciaDeViajes.Models
         [Required(AllowEmptyStrings = false,ErrorMessage = " Ingresar su clave")]
         public String clave { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{dd/MM/yyyy}")]
         public DateTime fechreg { get; set; }
 
     }

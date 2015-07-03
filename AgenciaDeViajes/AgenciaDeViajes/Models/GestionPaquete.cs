@@ -16,7 +16,7 @@ namespace AgenciaDeViajes.Models
     {
         public GestionPaquete()
         {
-            this.Reservas = new HashSet<Reserva>();
+            this.Reserva = new HashSet<Reserva>();
         }
     
         public string idPaquete { get; set; }
@@ -34,9 +34,9 @@ namespace AgenciaDeViajes.Models
         public decimal precioPaqueteNiño { get; set; }
     
         public virtual Ciudad Ciudad { get; set; }
-        public virtual Pai Pai { get; set; }
+        public virtual Pais Pais { get; set; }
         public virtual ProgVuelo ProgVuelo { get; set; }
         public virtual TipoPaquete TipoPaquete { get; set; }
-        public virtual ICollection<Reserva> Reservas { get; set; }
+        public virtual ICollection<Reserva> Reserva { get; set; }
     }
 }

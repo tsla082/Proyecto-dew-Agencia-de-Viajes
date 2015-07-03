@@ -12,23 +12,23 @@ namespace AgenciaDeViajes.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Ciudad
+    public partial class Pais
     {
-        public Ciudad()
+        public Pais()
         {
             this.Aeropuerto = new HashSet<Aeropuerto>();
+            this.Ciudad = new HashSet<Ciudad>();
             this.Cliente = new HashSet<Cliente>();
             this.Empleado = new HashSet<Empleado>();
             this.GestionPaquete = new HashSet<GestionPaquete>();
             this.Proveedor = new HashSet<Proveedor>();
         }
     
-        public string idCiudad { get; set; }
         public string idPais { get; set; }
-        public string nombCiudad { get; set; }
+        public string nombPais { get; set; }
     
         public virtual ICollection<Aeropuerto> Aeropuerto { get; set; }
-        public virtual Pais Pais { get; set; }
+        public virtual ICollection<Ciudad> Ciudad { get; set; }
         public virtual ICollection<Cliente> Cliente { get; set; }
         public virtual ICollection<Empleado> Empleado { get; set; }
         public virtual ICollection<GestionPaquete> GestionPaquete { get; set; }

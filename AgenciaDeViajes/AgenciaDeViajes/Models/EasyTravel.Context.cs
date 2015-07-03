@@ -15,10 +15,10 @@ namespace AgenciaDeViajes.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class EasyTravelEntities2 : DbContext
+    public partial class EasyTravelEntities : DbContext
     {
-        public EasyTravelEntities2()
-            : base("name=EasyTravelEntities2")
+        public EasyTravelEntities()
+            : base("name=EasyTravelEntities")
         {
         }
     
@@ -27,24 +27,24 @@ namespace AgenciaDeViajes.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Aeropuerto> Aeropuertoes { get; set; }
-        public virtual DbSet<Avion> Avions { get; set; }
-        public virtual DbSet<Cargo> Cargoes { get; set; }
-        public virtual DbSet<CategoriaHotel> CategoriaHotels { get; set; }
-        public virtual DbSet<Ciudad> Ciudads { get; set; }
-        public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Empleado> Empleadoes { get; set; }
-        public virtual DbSet<EstadoReserva> EstadoReservas { get; set; }
-        public virtual DbSet<GestionPaquete> GestionPaquetes { get; set; }
-        public virtual DbSet<Habitacion> Habitacions { get; set; }
-        public virtual DbSet<Pai> Pais { get; set; }
-        public virtual DbSet<ProgVuelo> ProgVueloes { get; set; }
-        public virtual DbSet<Proveedor> Proveedors { get; set; }
-        public virtual DbSet<Reserva> Reservas { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<TipoHabitacion> TipoHabitacions { get; set; }
-        public virtual DbSet<TipoPaquete> TipoPaquetes { get; set; }
-        public virtual DbSet<TipoServicio> TipoServicios { get; set; }
+        public virtual DbSet<Aeropuerto> Aeropuerto { get; set; }
+        public virtual DbSet<Avion> Avion { get; set; }
+        public virtual DbSet<Cargo> Cargo { get; set; }
+        public virtual DbSet<CategoriaHotel> CategoriaHotel { get; set; }
+        public virtual DbSet<Ciudad> Ciudad { get; set; }
+        public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Empleado> Empleado { get; set; }
+        public virtual DbSet<EstadoReserva> EstadoReserva { get; set; }
+        public virtual DbSet<GestionPaquete> GestionPaquete { get; set; }
+        public virtual DbSet<Habitacion> Habitacion { get; set; }
+        public virtual DbSet<Pais> Pais { get; set; }
+        public virtual DbSet<ProgVuelo> ProgVuelo { get; set; }
+        public virtual DbSet<Proveedor> Proveedor { get; set; }
+        public virtual DbSet<Reserva> Reserva { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TipoHabitacion> TipoHabitacion { get; set; }
+        public virtual DbSet<TipoPaquete> TipoPaquete { get; set; }
+        public virtual DbSet<TipoServicio> TipoServicio { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

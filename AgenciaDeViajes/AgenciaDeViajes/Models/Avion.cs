@@ -16,7 +16,7 @@ namespace AgenciaDeViajes.Models
     {
         public Avion()
         {
-            this.ProgVueloes = new HashSet<ProgVuelo>();
+            this.ProgVuelo = new HashSet<ProgVuelo>();
         }
     
         public string idAvion { get; set; }
@@ -24,6 +24,6 @@ namespace AgenciaDeViajes.Models
         public string modelAvion { get; set; }
     
         public virtual Proveedor Proveedor { get; set; }
-        public virtual ICollection<ProgVuelo> ProgVueloes { get; set; }
+        public virtual ICollection<ProgVuelo> ProgVuelo { get; set; }
     }
 }

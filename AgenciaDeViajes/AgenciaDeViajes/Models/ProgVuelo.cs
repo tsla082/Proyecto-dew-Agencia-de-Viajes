@@ -16,7 +16,7 @@ namespace AgenciaDeViajes.Models
     {
         public ProgVuelo()
         {
-            this.GestionPaquetes = new HashSet<GestionPaquete>();
+            this.GestionPaquete = new HashSet<GestionPaquete>();
         }
     
         public string idProgVuelo { get; set; }
@@ -32,7 +32,7 @@ namespace AgenciaDeViajes.Models
         public virtual Aeropuerto Aeropuerto1 { get; set; }
         public virtual Aeropuerto Aeropuerto2 { get; set; }
         public virtual Avion Avion { get; set; }
-        public virtual ICollection<GestionPaquete> GestionPaquetes { get; set; }
+        public virtual ICollection<GestionPaquete> GestionPaquete { get; set; }
         public virtual Proveedor Proveedor { get; set; }
     }
 }
