@@ -379,7 +379,11 @@
     <Content Include="datepicker\css\datepicker.css" />
     <Content Include="datepicker\js\bootstrap-datepicker.js" />
     <Content Include="datepicker\js\main.js" />
+    <Content Include="Images\paises\AR01.jpg" />
     <Content Include="Images\banner.png" />
+    <Content Include="Images\paises\BR02.jpg" />
+    <Content Include="Images\paises\CO03.jpg" />
+    <Content Include="Images\paises\CU04.jpg" />
     <Content Include="Images\easytravelmenu.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -461,9 +465,14 @@
     <Content Include="Content\bootstrap\bootstrap.css.map">
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
+    <Content Include="Images\paises\EC08.jpg" />
+    <Content Include="Images\paises\EU05.jpg" />
     <Content Include="Images\f.jpg" />
     <Content Include="Images\fondo.jpg" />
     <Content Include="Images\ico_peru.jpg" />
+    <Content Include="Images\paises\MX06.jpg" />
+    <Content Include="Images\paises\PE07.jpg" />
+    <Content Include="Images\paises\RD08.jpg" />
     <Content Include="Scripts\bootstrap.min.js.map">
       <DependentUpon>bootstrap.min.js</DependentUpon>
     </Content>
