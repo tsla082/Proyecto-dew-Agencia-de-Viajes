@@ -26,7 +26,7 @@ namespace AgenciaDeViajes.Models
         public String genero { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = " Ingresar su fecha de nacimiento")]
-        public String fechanacimiento { get; set; }
+        public DateTime fechanacimiento { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = " Ingresar su documento de identidad")]
         public String docId { get; set; }
@@ -46,7 +46,8 @@ namespace AgenciaDeViajes.Models
         [Required(AllowEmptyStrings = false,ErrorMessage = " Ingresar su clave")]
         public String clave { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{dd/MM/yyyy}")]
+        [DataType(DataType.Date)]
+        [DisplayFormat( DataFormatString = "{0:yyyy-MM-dd}",ApplyFormatInEditMode = true)]
         public DateTime fechreg { get; set; }
 
     }

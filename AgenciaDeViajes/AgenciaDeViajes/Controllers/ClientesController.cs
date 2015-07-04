@@ -56,6 +56,8 @@ namespace AgenciaDeViajes.Controllers
             //cargar ciudades
             ViewBag.ciudad = new SelectList(agv.Ciudad.ToList(), "idCiudad", "nombCiudad");
             //cargar genero
+            ViewBag.fechasistema = DateTime.Today;
+
 
             Genero g = new Genero();
             g.genero = "m";
@@ -97,7 +99,27 @@ namespace AgenciaDeViajes.Controllers
 
                 Clientes cli = cliente;
 
-                
+                Cliente cl = new Cliente();
+
+                cl.idCliente = cli.idCliente;
+                cl.nombre = cli.nombre;
+                cl.apellidopat = cli.apellidopat;
+                cl.apellidomat = cli.apellidomat;
+                cl.genero = cli.genero;
+                cl.fechanacimiento = cli.fechanacimiento;
+                cl.docId = cli.docId;
+                cl.idPais = cli.idPais;
+                cl.idCiudad = cli.idCiudad;
+                cl.direccion = cli.direccion;
+                cl.correo = cli.correo;
+                cl.clave = cli.clave;
+                cl.fechreg = cli.fechreg;
+
+                agv.Cliente.Add(cl);
+
+                agv.SaveChanges();
+
+                ViewBag.mensajeregistrocliente = "Se ha registrado correctamente pro favor loguearse para acceder al sistema";
 
                 return RedirectToAction("Inicio");
                 
