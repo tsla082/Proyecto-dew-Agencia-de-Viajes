@@ -121,7 +121,8 @@
                                     <!-- end col -->
                                     <!-- col -->
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="background-color: transparent;">
-                                        @Html.TextBoxFor(x => x.fechanacimiento, String.Format("{0:yyyy-MM-dd}" ,htmlAttributes: new { Class = "form-control", placeholder = "dia-mes-full año" })
+                                        @Html.TextBoxFor(x => x.fechanacimiento, String.Format("{0:yyyy-MM-dd}"), htmlAttributes: new { Class = "form-control", placeholder = "dia-mes-full año" })
+
                                         <h5 style="color:red">
                                             @Html.ValidationMessageFor(x => x.fechanacimiento)
                                         </h5>
@@ -146,7 +147,7 @@
                                 </div>
                                 <!-- end row -->
 
-
+                                
                             </div>
 
                             <!-- end cols -->
