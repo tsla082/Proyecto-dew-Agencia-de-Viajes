@@ -1,8 +1,11 @@
-﻿@{
+﻿@model AgenciaDeViajes.Models.Empleados
+@{
     ViewBag.Title = "Login EasyTravel";
     Layout = "~/Views/Shared/Background_layout.cshtml";
 }
-
+@{
+    String mensaje = AgenciaDeViajes.Controllers.SeguridadController.mensajesvalidacionempleado;
+}
 <div id="myventana" class=" " tabindex="-1" role="dialog" aria-labelledby="mymodallabel" aria-hidden="true">
     <div class="modal-dialog-sm">
         <div class="modal-content">
@@ -14,24 +17,43 @@
 
             </div>
 
-            <form action="-----------------------------------" method="post">
+            @using(Html.BeginForm()){
 
                 <div class="modal-body">
 
                     <table align="center">
 
                         <tr>
-                            <td style="width: 113px; "><h4>Usuario</h4></td>
+                            <td style="width: 113px; "><h4>Usuario ID</h4></td>
                             <td>
-                                <input type="text" name="user" class="form-control" id="usuario" id="inputSeleccionado" placeholder="usuario">
+                                @Html.TextBoxFor(x => x.idEmpleado, htmlAttributes: new { Class = "form-control", placeholder = "ingresar el id del empleado" })
                             </td>
                         </tr>
-
+                        <tr>
+                            <td>
+                                @Html.ValidationMessageFor(x => x.idEmpleado)
+                            </td>
+                        </tr>
                         <tr>
                             <td style="width: 113px; "><h4>Clave</h4></td>
-                            <td><input type="password" name="pwd" class="form-control" id="claves" id="inputSeleccionado" placeholder="Contraseña"></td>
+                            <td>@Html.PasswordFor(x => x.clave, htmlAttributes: new { Class = "form-control", placeholder = "ingresar la contraseña del empleado" })</td>
                         </tr>
+                        <tr>
+                            <td>
+                                @Html.ValidationMessageFor(x => x.clave)
+                            </td>
+                        </tr>
+                        @{
 
+                        if(mensaje!=null){
+
+                        <tr>
+                            <td colspan="2">
+                                <center><p class="bg-info">  @mensaje </p> </center>
+                            </td>
+                        </tr>
+                        }
+                        }
                         <tr>
                             <td><input type="submit" class="btn btn-success" value="Entrar" style="float: right;margin-right: 5px;"></td>
                             <td style="height: 65px; "><input type="reset" class="btn btn-primary" value="Borrar" style="float: left;margin-left: 5px;"> </td>
@@ -40,7 +62,7 @@
                     </table>
 
                 </div>
-            </form>
+            }
             <div class="modal-footer">
 
                 <!-- 	<button type="reset" class="btn btn-primary">

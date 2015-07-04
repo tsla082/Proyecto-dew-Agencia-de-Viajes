@@ -278,6 +278,7 @@
       <DependentUpon>bootstrap.less</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\css\alternative.css" />
     <Content Include="Content\css\bootstrap-rtl.css" />
     <Content Include="Content\css\bootstrap-rtl.min.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -285,6 +286,8 @@
     <Content Include="Content\css\plugins\morris.css" />
     <Content Include="Content\css\sb-admin-rtl.css" />
     <Content Include="Content\css\sb-admin.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\teststyles.css" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\js\bootstrap.js" />

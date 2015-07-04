@@ -116,10 +116,9 @@ namespace AgenciaDeViajes.Controllers
                 cl.fechreg = cli.fechreg;
 
                 agv.Cliente.Add(cl);
-
                 agv.SaveChanges();
 
-                ViewBag.mensajeregistrocliente = "Se ha registrado correctamente pro favor loguearse para acceder al sistema";
+                SeguridadController.mensajes = "Se ha registrado correctamente pro favor loguearse para acceder al sistema";
 
                 return RedirectToAction("Inicio");
                 

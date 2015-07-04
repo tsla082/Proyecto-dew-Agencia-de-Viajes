@@ -10,12 +10,38 @@ namespace AgenciaDeViajes.Controllers
 {
     public class SeguridadController : Controller
     {
+
+        //instancia ado de objetos de base de datos
+
+        EasyTravelEntities ete = new EasyTravelEntities();
+
+        //instancia paquetes controller
+
+        PaquetesController pqc = new PaquetesController();
+
+        //elementos
+
+        public static List<Clientes> clientelista = new List<Clientes>();
+
+        public static List<Empleados> Empleadoslista = new List<Empleados>();
+
+        public static String mensajes;
+
+        public static String mensajesvalidacionempleado;
+
+        String sesioncliente = "ClienteSession";
+        String sesionclientecarro = "ClienteCarritoSession";
+        String sesionempleado = "EmpleadoSession";
         //
         // GET: /Seguridad/
 
         public ActionResult Login()
         {
-            return View();
+            //crear la instancia del modelo a recibir
+
+            Empleados emp = new Empleados();
+
+            return View(emp);
         }
 
         //
@@ -23,32 +49,86 @@ namespace AgenciaDeViajes.Controllers
         [HttpPost]
         public ActionResult Login(Empleados emp)
         {
-            return View();
+
+            if(ModelState.IsValid){
+                
+                //confirmar si hay usuario
+                Empleados em = emp;
+
+                Empleado emple = ete.Empleado.Where(x => x.idEmpleado == em.idEmpleado && x.clave.Equals(em.clave)).FirstOrDefault();
+
+              if (emple!=null){
+
+                  em.idEmpleado = emple.idEmpleado;
+                  em.nombre = emple.nombre;
+                  em.apellidopat = emple.apellidopat;
+                  em.apellidomat = emple.apellidomat;
+                  em.genero = emple.genero;
+                  em.dni = emple.dni;
+                  em.telefono = emple.telefono;
+                  em.idPais = emple.idPais;
+                  em.idCiudad = emple.idCiudad;
+                  em.direccion = emple.direccion;
+                  em.idcargo = emple.idCargo;
+                  em.clave = emple.clave;
+                  em.fechareg = (DateTime)emple.fechareg;
+
+                  crearSesionEmpleados(em);
+
+                  return RedirectToAction("MenuPrincipal","Paquetes");
+               
+              }
+              //si no hayusuario
+              else
+              {
+
+                  mensajesvalidacionempleado = "Error de id o clave ,usuario no encontrado";
+
+                  return View(emp);
+
+              }
+
+               
+
+            }
+
+            return View(emp);
         }
-
-        public static List<Clientes> clientelista = new List<Clientes>();
-
-        public static List<Empleados> Empleadoslista = new List<Empleados>();
 
         
 
-        public Boolean verficarSesion() { 
+        public Boolean verficarSesion(String nombresesion) { 
 
             Boolean existe=false;
+
+            List<Object> obj = (List<Object>)Session[nombresesion];
+
+            //agregar script
+
+            if (obj != null)
+            {
+                existe = true;
+            }
 
             return existe;
         }
 
-        public void crearSesionCliente()
+        public void crearSesionCliente(Object objcli)
         {
 
-            Session["ClienteSession"] = clientelista;
+            Session["ClienteSession"] = objcli;
 
         }
-        public void crearSesionEmpleados()
+        public void crearSesionClienteCarrito(Object objcliecar)
         {
 
-            Session["EmpleadoSession"] = Empleadoslista;
+            Session["ClienteCarritoSession"] = objcliecar;
+
+        }
+        public void crearSesionEmpleados(Object objemp)
+        {
+
+            Session["EmpleadoSession"] = objemp;
 
         }
         

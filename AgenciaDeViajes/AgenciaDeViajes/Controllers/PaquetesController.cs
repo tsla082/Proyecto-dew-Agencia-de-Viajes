@@ -11,10 +11,6 @@ namespace AgenciaDeViajes.Controllers
         //
         // GET: /Paquetes/
 
-        public ActionResult Inicio()
-        {
-            return View();
-        }
         public ActionResult MenuPrincipal()
         {
             return View();
